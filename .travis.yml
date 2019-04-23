@@ -1,4 +1,5 @@
 language: node_js
 node_js:
         - "7"
-
+notifications:
+  slack: cse112-sp19-team8:Z18CJp98p6trZ5YZOZZeatxM
