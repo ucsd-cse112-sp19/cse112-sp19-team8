@@ -4,7 +4,7 @@ node_js:
 notifications:
   slack: cse112-sp19-team8:Z18CJp98p6trZ5YZOZZeatxM
 
-before_install: cd HelloWorld_Component/
 script: 
+        - cd HelloWorld_Component/
         - npm install
         - npm test 
