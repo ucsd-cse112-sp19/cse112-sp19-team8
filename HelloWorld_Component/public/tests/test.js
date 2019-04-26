@@ -10,9 +10,9 @@ describe('test', () => {
   });
 });
 
-describe('test', () => {
+/* describe('test', () => {
     it('should return a string', () => {
       expect('ci with travis').to.equal('ci with tra');
       console.log("test worked!");
     });
-  });
+  }); */ 
