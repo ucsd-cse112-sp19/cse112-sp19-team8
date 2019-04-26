@@ -4,7 +4,4 @@ node_js:
 notifications:
   slack: cse112-sp19-team8:Z18CJp98p6trZ5YZOZZeatxM
 
-before_script:
-  - npm install -g mocha
-
 script: npm test
