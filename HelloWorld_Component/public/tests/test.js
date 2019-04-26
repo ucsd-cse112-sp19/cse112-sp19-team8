@@ -3,8 +3,8 @@
 const expect = require('chai').expect
 const server = require('../../server');
 
-describe('test', () => {
-  it('should return a string', () => {
+describe('test', function() {
+  it('should return a string', function() {
     expect('ci with travis').to.equal('ci with travis');
     console.log("test worked!");
   });
