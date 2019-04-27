@@ -131,7 +131,7 @@ describe('Testing component CoreHello', () => {
 	it('should have rgb(100, 50, 150) as initial color', () => {
 		const component = new CoreHello();
 		expect(component.bgColor.red).equal(100);
-		expect(component.bgColor.green).equal(-1);
+		expect(component.bgColor.green).equal(50);
 		expect(component.bgColor.blue).equal(150);
 	});
 
