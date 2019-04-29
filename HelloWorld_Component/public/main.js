@@ -49,7 +49,6 @@ const template = document.createElement('template');
       this.bgColor.red = 100
       this.bgColor.green = 50
       this.bgColor.blue = 150
-      console.log('hi ' + this.innerHTML)
 
       this.msg = this.shadowRoot.querySelector('.msg')
       this.msg.innerHTML = 'Hello World ' + this.innerHTML
