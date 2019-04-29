@@ -1,4 +1,3 @@
-(function() {
   const template = document.createElement('template');
   template.innerHTML = `
   <style>
@@ -116,4 +115,5 @@
   }
 
   window.customElements.define('core-hello', CoreHello);
-})();
+
+
