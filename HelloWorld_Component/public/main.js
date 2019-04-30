@@ -78,6 +78,11 @@ class CoreHello extends HTMLElement {
     this.bgColor.blue = 150
 
     this.msg = this.shadowRoot.querySelector('.msg')
+
+    // Await window to load so that innerHTML can be rendered.
+    window.onload = () => {
+      this.updateLang()
+    };
   };
 
   // Fires when Element is inserted into DOM
@@ -87,6 +92,8 @@ class CoreHello extends HTMLElement {
 
     // Call the draw function initially
     this.draw()
+
+ 
 
     // Call the draw function every section to update the time
     setInterval(() => {
