@@ -1,7 +1,7 @@
 const template = document.createElement('template')
 template.innerHTML = `
   <style>
-    div { 
+    div {
       border: solid 0.5px grey;
       text-align: center;
       width: 50%;

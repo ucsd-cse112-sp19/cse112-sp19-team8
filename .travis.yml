@@ -12,9 +12,9 @@ addons:
 
 cache:
   directories:
-    - node_modules
+    - HelloWorld_Component/node_modules
 
-script: 
+script:
         - cd HelloWorld_Component/
         - npm install
-        - npm test 
+        - npm test
