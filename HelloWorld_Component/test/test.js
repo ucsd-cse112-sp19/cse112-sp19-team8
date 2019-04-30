@@ -13,7 +13,7 @@ describe('Testing component CoreHello', () => {
 
   it('should update language to Spanish', () => {
     const component = new CoreHello()
-    component.lang = 'Spanish'
+    component.lang = 'Spash'
     // component.updateLang()
     expect(component.msg.innerHTML).equal('Hola Mundo ')
   })
