@@ -23,7 +23,14 @@
     "standard": "^12.0.1"
   },
   "standard": {
-  "env": [ "mocha", "chai", "jest"],
-  "globals" : ["CoreHello" , "HTMLElement"]
+    "env": [
+      "mocha",
+      "chai",
+      "jest"
+    ],
+    "globals": [
+      "CoreHello",
+      "HTMLElement"
+    ]
   }
 }
