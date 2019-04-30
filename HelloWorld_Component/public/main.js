@@ -144,7 +144,6 @@ class CoreHello extends HTMLElement {
       default:
         this.msg.innerHTML = 'Hello World ' + this.innerHTML
     }
-
   }
 }
 
