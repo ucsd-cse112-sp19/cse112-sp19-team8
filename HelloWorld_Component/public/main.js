@@ -15,12 +15,10 @@ template.innerHTML = `
   `
 
 class CoreHello extends HTMLElement {
-
-
   get rainbow () {
     return this.hasAttribute('rainbow')
   }
- 
+
   set rainbow (val) {
     console.log('inside set rainbow')
     if (val) {
@@ -110,7 +108,6 @@ class CoreHello extends HTMLElement {
       default:
         this.msg.innerHTML = 'Hello World ' + this.innerHTML
     }
-
   }
 }
 

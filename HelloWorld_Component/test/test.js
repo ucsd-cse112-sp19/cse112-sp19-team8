@@ -1,7 +1,7 @@
 describe('Testing component CoreHello', () => {
   it('should show Hello World with raw tag', () => {
     const component = new CoreHello()
-    expect(component.msg.innerHTML).equal('Hello World ')
+    expect(component.msg.innerHTML).equal('Hello World')
   })
 
   it('should have rgb(100, 50, 150) as initial color', () => {
@@ -14,7 +14,7 @@ describe('Testing component CoreHello', () => {
   it('should update language to Spanish', () => {
     const component = new CoreHello()
     component.lang = 'Spanish'
-    component.updateLang()
+    // component.updateLang()
     expect(component.msg.innerHTML).equal('Hola Mundo ')
   })
 })
