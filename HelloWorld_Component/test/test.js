@@ -11,10 +11,27 @@ describe('Testing component CoreHello', () => {
     expect(component.bgColor.blue).equal(150)
   })
 
+  it('should update language to Japanese', () => {
+    const component = new CoreHello()
+    component.lang = 'jp'
+    expect(component.msg.innerHTML).equal('こんにちは世界 ')
+  })
+
+  it('should update language to Greek', () => {
+    const component = new CoreHello()
+    component.lang = 'Greek'
+    expect(component.msg.innerHTML).equal('Γειά σου Κόσμε ')
+  })
+
   it('should update language to Spanish', () => {
     const component = new CoreHello()
     component.lang = 'Spanish'
-    // component.updateLang()
     expect(component.msg.innerHTML).equal('Hola Mundo ')
+  })
+
+  it('should update language to English (invalid case)', () => {
+    const component = new CoreHello()
+    component.lang = 'InvalidLanguage'
+    expect(component.msg.innerHTML).equal('Hello World ')
   })
 })
