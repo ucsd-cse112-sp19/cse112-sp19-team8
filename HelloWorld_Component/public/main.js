@@ -13,14 +13,28 @@ template.innerHTML = `
     <h1 class="msg">Hello World</h1>
   </div>
   `
-
+/**
+ * Creates a CoreHello custom Web Element, that displays "Hellow World".
+ * @class
+ * @property {string}    - 'rainbow' - Whether text changes colors on an interval
+ * @property {string}    - 'lang' - to display HelloWorld text in.
+ */
 class CoreHello extends HTMLElement {
 
-
+ /** 
+  * Returns whether this instance has 'rainbow' attribute.
+  * @function 
+  * @returns {}
+ */
   get rainbow () {
     return this.hasAttribute('rainbow')
   }
 
+  /** 
+   * Sets this instance's rainbow attribute.
+   * @function 
+   * @param {bool}
+  */
   set rainbow (val) {
     console.log('inside set rainbow')
     if (val) {
@@ -30,10 +44,19 @@ class CoreHello extends HTMLElement {
     }
   }
 
+ /** 
+   * Returns this instance's 'lang' attribute.
+   * @function 
+   * @returns {string}
+  */
   get lang () {
     return this.getAttribute('lang')
   }
-
+ /** 
+   * Sets this instance's rainbow attribute.
+   * @function 
+   * @param {bool}
+  */
   set lang (lan) {
     console.log('in set lang')
     if (lan) {
