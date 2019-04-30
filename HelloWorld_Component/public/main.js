@@ -1,7 +1,7 @@
 const template = document.createElement('template')
 template.innerHTML = `
   <style>
-    div { 
+    div {
       border: solid 0.5px grey;
       text-align: center;
       width: 50%;
@@ -20,7 +20,7 @@ class CoreHello extends HTMLElement {
   get rainbow () {
     return this.hasAttribute('rainbow')
   }
-
+ 
   set rainbow (val) {
     console.log('inside set rainbow')
     if (val) {
