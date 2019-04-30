@@ -13,12 +13,28 @@ template.innerHTML = `
     <h1 class="msg">Hello World</h1>
   </div>
   `
-
+/**
+ * Creates a CoreHello custom Web Element, that displays "Hellow World".
+ * @class
+ * @property {string}    - 'rainbow' - Whether text changes colors on an interval
+ * @property {string}    - 'lang' - to display HelloWorld text in.
+ */
 class CoreHello extends HTMLElement {
+
+ /**
+  * Returns whether this instance has 'rainbow' attribute.
+  * @function
+  * @returns {}
+ */
   get rainbow () {
     return this.hasAttribute('rainbow')
   }
 
+  /**
+   * Sets this instance's rainbow attribute.
+   * @function
+   * @param {bool}
+  */
   set rainbow (val) {
     console.log('inside set rainbow')
     if (val) {
@@ -28,10 +44,19 @@ class CoreHello extends HTMLElement {
     }
   }
 
+ /**
+   * Returns this instance's 'lang' attribute.
+   * @function
+   * @returns {string}
+  */
   get lang () {
     return this.getAttribute('lang')
   }
-
+ /**
+   * Sets this instance's rainbow attribute.
+   * @function
+   * @param {bool}
+  */
   set lang (lan) {
     console.log('in set lang')
     if (lan) {
@@ -41,8 +66,10 @@ class CoreHello extends HTMLElement {
     }
     this.updateLang()
   }
-
-  // Fires when an instance of the element is created.
+  /**
+  * Fires when an instance of the element is created.
+  * @constructor
+  */
   constructor () {
     super()
     this.attachShadow({ mode: 'open' })
@@ -55,7 +82,9 @@ class CoreHello extends HTMLElement {
     this.msg = this.shadowRoot.querySelector('.msg')
   };
 
-  // Fires when Element is inserted into DOM
+  /** Fires when Element is inserted into DOM
+  * @function
+  */
   connectedCallback () {
     // Set language of hello world.
     this.updateLang()
@@ -68,7 +97,10 @@ class CoreHello extends HTMLElement {
       this.draw()
     }, 100)
   }
-
+/**
+* Randomizes color
+* @function
+*/
   draw () {
     if (this.rainbow) {
       let rAdjust = Math.floor(Math.random() * 15)
@@ -93,6 +125,10 @@ class CoreHello extends HTMLElement {
     }
   };
 
+/**
+* Sets the Language of Hello World
+* @function
+*/
   updateLang () {
     console.log(this.lang)
     switch (this.lang) {
