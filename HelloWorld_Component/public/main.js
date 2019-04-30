@@ -21,18 +21,18 @@ template.innerHTML = `
  */
 class CoreHello extends HTMLElement {
 
- /** 
+ /**
   * Returns whether this instance has 'rainbow' attribute.
-  * @function 
+  * @function
   * @returns {}
  */
   get rainbow () {
     return this.hasAttribute('rainbow')
   }
 
-  /** 
+  /**
    * Sets this instance's rainbow attribute.
-   * @function 
+   * @function
    * @param {bool}
   */
   set rainbow (val) {
@@ -44,17 +44,17 @@ class CoreHello extends HTMLElement {
     }
   }
 
- /** 
+ /**
    * Returns this instance's 'lang' attribute.
-   * @function 
+   * @function
    * @returns {string}
   */
   get lang () {
     return this.getAttribute('lang')
   }
- /** 
+ /**
    * Sets this instance's rainbow attribute.
-   * @function 
+   * @function
    * @param {bool}
   */
   set lang (lan) {
@@ -66,8 +66,10 @@ class CoreHello extends HTMLElement {
     }
     this.updateLang()
   }
-
-  // Fires when an instance of the element is created.
+  /**
+  * Fires when an instance of the element is created.
+  * @constructor
+  */
   constructor () {
     super()
     this.attachShadow({ mode: 'open' })
@@ -85,7 +87,9 @@ class CoreHello extends HTMLElement {
     };
   };
 
-  // Fires when Element is inserted into DOM
+  /** Fires when Element is inserted into DOM
+  * @function
+  */
   connectedCallback () {
     // Set language of hello world.
     this.updateLang()
@@ -100,7 +104,10 @@ class CoreHello extends HTMLElement {
       this.draw()
     }, 100)
   }
-
+/**
+* Randomizes color
+* @function
+*/
   draw () {
     if (this.rainbow) {
       let rAdjust = Math.floor(Math.random() * 15)
@@ -125,6 +132,10 @@ class CoreHello extends HTMLElement {
     }
   };
 
+/**
+* Sets the Language of Hello World
+* @function
+*/
   updateLang () {
     console.log(this.lang)
     switch (this.lang) {
@@ -140,7 +151,6 @@ class CoreHello extends HTMLElement {
       default:
         this.msg.innerHTML = 'Hello World ' + this.innerHTML
     }
-
   }
 }
 

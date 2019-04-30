@@ -1,13 +1,13 @@
 const express = require('express')
-const app = new express()
+const app = express()
 var path = require('path')
 
 // Allow node app to see js files.
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(path.join(__dirname, '/public')))
 
 // Set main route to index.html
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname + '/public/index.html'))
+  res.sendFile(path.join(__dirname, '/public/index.html'))
 })
 
 // Create a local port.
@@ -16,4 +16,3 @@ const server = app.listen(8080, () => {
 })
 
 module.exports = server
- 
