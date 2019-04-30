@@ -35,7 +35,6 @@ class CoreHello extends HTMLElement {
    * @param {bool}  - true for make rainbow, false for static color.
   */
   set rainbow (val) {
-    console.log('inside set rainbow')
     if (val) {
       this.setAttribute('rainbow', '')
     } else {
@@ -58,7 +57,6 @@ class CoreHello extends HTMLElement {
    * @param {string}  - Retrieves the current Core-Hello language.
   */
   set lang (lan) {
-    console.log('in set lang')
     if (lan) {
       this.setAttribute('lang', lan)
     } else {
@@ -125,7 +123,6 @@ class CoreHello extends HTMLElement {
   };
 
   updateLang () {
-    console.log(this.lang)
     switch (this.lang) {
       case 'jp':
         this.msg.innerHTML = 'こんにちは世界 ' + this.innerHTML
