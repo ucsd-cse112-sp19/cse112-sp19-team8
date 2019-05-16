@@ -1,0 +1,20 @@
+language: node_js
+
+node_js:
+        - "7"
+notifications:
+  slack: cse112-sp19-team8:Z18CJp98p6trZ5YZOZZeatxM
+
+sudo: required
+
+addons:
+  chrome: stable # have Travis install Chrome stable.
+
+cache:
+  directories:
+    - HelloWorld_Component/node_modules
+
+script:
+        - cd HelloWorld_Component/
+        - npm install
+        - npm test
