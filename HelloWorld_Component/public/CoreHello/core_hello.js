@@ -1,5 +1,5 @@
-const template = document.createElement('template')
-template.innerHTML = `
+const helloTemplate = document.createElement('template')
+helloTemplate.innerHTML = `
   <style>
     div {
       border: solid 0.5px grey;
@@ -10,7 +10,7 @@ template.innerHTML = `
     }
   </style>
   <div class = "core">
-    <h1 class="msg">Hello World</h1>
+    <h1 class = "msg">Hello World</h1>
   </div>
   `
 /**
@@ -35,7 +35,6 @@ class CoreHello extends HTMLElement {
    * @param {bool}  - true for make rainbow, false for static color.
   */
   set rainbow (val) {
-    console.log('inside set rainbow')
     if (val) {
       this.setAttribute('rainbow', '')
     } else {
@@ -58,7 +57,6 @@ class CoreHello extends HTMLElement {
    * @param {string}  - Retrieves the current Core-Hello language.
   */
   set lang (lan) {
-    console.log('in set lang')
     if (lan) {
       this.setAttribute('lang', lan)
     } else {
@@ -73,7 +71,7 @@ class CoreHello extends HTMLElement {
   constructor () {
     super()
     this.attachShadow({ mode: 'open' })
-    this.shadowRoot.appendChild(template.content.cloneNode(true))
+    this.shadowRoot.appendChild(helloTemplate.content.cloneNode(true))
     this.bgColor = this.shadowRoot.querySelector('.core')
     this.bgColor.red = 100
     this.bgColor.green = 50
@@ -85,7 +83,7 @@ class CoreHello extends HTMLElement {
     window.onload = () => {
       this.updateLang()
     }
-  };
+  }
 
   connectedCallback () {
     // Set language of hello world.
@@ -125,7 +123,6 @@ class CoreHello extends HTMLElement {
   };
 
   updateLang () {
-    console.log(this.lang)
     switch (this.lang) {
       case 'jp':
         this.msg.innerHTML = 'こんにちは世界 ' + this.innerHTML

@@ -30,7 +30,9 @@
     ],
     "globals": [
       "CoreHello",
-      "HTMLElement"
+      "HTMLElement",
+      "Carousel",
+      "RippleButton"
     ],
     "ignore": [
       "public/out"

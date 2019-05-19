@@ -2,7 +2,9 @@ module.exports = function (config) {
   config.set({
     frameworks: ['mocha', 'chai'],
     files: ['test/**/*.js',
-      'public/main.js'],
+      'public/Carousel/carousel.js',
+      'public/CoreHello/core_hello.js',
+      'public/RippleButton/ripple_button.js'],
     reporters: ['progress'],
     port: 9876, // karma web server port
     colors: true,

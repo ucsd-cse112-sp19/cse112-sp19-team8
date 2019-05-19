@@ -1,0 +1,9 @@
+div.container {
+    display: flex;
+    overflow: hidden;
+}
+
+div.category {
+    padding: 20px;
+    width: 33%;
+}

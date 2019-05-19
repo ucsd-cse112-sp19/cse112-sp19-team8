@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Web Component [Carousel] Display</title>
+        <script src="carousel.js" type="text/javascript"></script>
+    </head>
+    <body>
+      <p> This component has <b>five</b> attributes. </p>
+      <p><b>number</b> [required] specifies how many images to display in total. (Minimum: 3) </p>
+      <p><b>imageFolder</b> [required] specifies where the images are. </p>
+      <p><b>interval</b> [optional] controls the time interval to display next image. </p>
+      <p><b>display</b> [optional] controls the order to display images. </p>
+      <p><b>blur</b> [optional] controls whether the surround images are blurred. </p>
+
+      <image-carousel number=10 imageFolder='numbers' interval=1500 display blur='false'>
+      </image-carousel><br><br>
+      <image-carousel number=8 imageFolder='img' interval=2500 display blur='false'>Tommy
+      </image-carousel><br><br>
+      <image-carousel number=3 imageFolder='img' interval=500 display='random' blur='true'>
+      </image-carousel>
+      <br><br>
+      
+    </body>
+</html>
