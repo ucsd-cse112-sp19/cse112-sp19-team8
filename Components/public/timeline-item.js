@@ -57,9 +57,9 @@ timelineItemTemplate.innerHTML = `
 /*
  * Timeline Class 
  * @property {String} timestamp - time for item component
- * @property {String} color - the color of the node for this timeline item.
+ * @property {String} color - TODO the color of the node for this timeline item.
  * @property {String} position - whether on "left" or "right"
- * @property {String} size - size of the node for the timeline item. "small" "medium" "large"
+ * @property {String} size - TODO size of the node for the timeline item. "small" "medium" "large"
  * @property {String} content - content for the timeline item.
  */
 class TimelineItem extends HTMLElement {

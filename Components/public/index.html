@@ -32,9 +32,9 @@
       // Click on the page to show the timeline element's content and position change.
       const component = new TimelineItem();
       document.onclick = function() {
-        let item = document.getElementById('toChange');
+        let item = document.getElementById('toChange')
         item.content = "I changed"
-        item.position = 'left';
+        item.position = (item.position === 'left') ? 'right' : 'left'
       }
     </script>
     </body>
