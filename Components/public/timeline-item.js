@@ -68,6 +68,7 @@ class TimelineItem extends HTMLElement {
     return this.getAttribute('timestamp')
   }
 
+  // Sets item's timestamp and updates with loadContent.
   set timestamp (time) {
     console.log('inside set timestamp')
     if (time) {
@@ -82,6 +83,7 @@ class TimelineItem extends HTMLElement {
     return this.getAttribute('content')
   }
 
+  // Sets timeline's description and reloads content.
   set content (txt) {
     console.log('inside set content')
     if (txt) {
@@ -96,6 +98,7 @@ class TimelineItem extends HTMLElement {
     return this.getAttribute('color')
   }
 
+  // Returns the color of the node on the timeline for this element and updates.
   set color (col) {
     console.log('inside set color')
     if (col) {
@@ -103,13 +106,14 @@ class TimelineItem extends HTMLElement {
     } else {
       this.removeAttribute('color')
     }
-    this.loadContent()
+    this.updateColor()
   }
 
   get position () {
     return this.getAttribute('position')
   }
 
+  // Sets position of timeline element to either left or right.
   set position (dir) {
     console.log('inside set position')
     if (dir) {
@@ -138,6 +142,7 @@ class TimelineItem extends HTMLElement {
     this.updatePosition();
   }
 
+  // Updates whether timeline element is on the left or right of the bar.
   updatePosition() {
       console.log("inside position " + this.position);
 
@@ -156,6 +161,11 @@ class TimelineItem extends HTMLElement {
       console.log('after ' + this.item.classList)
   }
 
+  updateColor() {
+      //TODO change ::after's selector for color of node.
+  }
+
+  // Loads timestamp and description into element.
   loadContent () {
     this.mainContent.textContent = this.content;
     console.log(this.content);

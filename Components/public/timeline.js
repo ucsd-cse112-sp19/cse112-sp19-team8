@@ -6,6 +6,7 @@ timelineTemplate.innerHTML = `
         position: relative;
         max-width: 100%;
         display: block;
+        font-family: ''
     }
     
     /* The actual timeline (the vertical ruler) */
@@ -35,7 +36,7 @@ class Timeline extends HTMLElement {
     return this.hasAttribute('reverse')
   }
 
-  // TODO
+  // TODO - reverses order of the elements.
   set reverse (val) {
     console.log('inside set reverse.')
     if (val) {
@@ -49,29 +50,11 @@ class Timeline extends HTMLElement {
     super()
     this.attachShadow({ mode: 'open' })
     this.shadowRoot.appendChild(timelineTemplate.content.cloneNode(true))
-    
   };
 
-  connectedCallback () {
-    // Wait for inner elements to be rendered, then load them to timeline.
-    Promise.all([
-        customElements.whenDefined('timeline-item'),
-    ]).then(_ => this.loadContent());
-  }
+  // TODO
+  reverseItems() {
 
-  allItems() {
-    return Array.from(this.querySelectorAll('timeline-item'));
-  }
-
-  loadContent () {
-     console.log("inside load content")
-     const items = this.allItems();
-     console.log(items);
-
-     items.forEach(item => {
-            console.log("inside all items")
-            console.log(item);
-     });
   }
     
 }
