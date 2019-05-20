@@ -3,10 +3,8 @@ timelineItemTemplate.innerHTML = `
   <style>
     /* Container around content */
     .item {
-        padding: 10px 40px;
         position: relative;
-        background-color: inherit;
-        width: 80%;
+        width: 50%;
     }
     
     /* The circles on the timeline */
@@ -15,60 +13,34 @@ timelineItemTemplate.innerHTML = `
         position: absolute;
         width: 25px;
         height: 25px;
-        right: -17px;
+        right: -19px;
         background-color: grey;
-        border: 4px solid #FF9F55;
-        top: 15px;
+        border: 4px solid grey;
+        top: 30px;
         border-radius: 50%;
         z-index: 1;
     }
     
     /* Place the container to the left */
     .left {
+        text-align: right;
         left: 0;
     }
     
     /* Place the container to the right */
     .right {
+        text-align: left;
         left: 50%;
-    }
-    
-    /* Add arrows to the left container (pointing right) */
-    .left::before {
-        content: " ";
-        height: 0;
-        position: absolute;
-        top: 22px;
-        width: 0;
-        z-index: 1;
-        right: 30px;
-        border: medium solid white;
-        border-width: 10px 0 10px 10px;
-        border-color: transparent transparent transparent white;
-    }
-    
-    /* Add arrows to the right container (pointing left) */
-    .right::before {
-        content: " ";
-        height: 0;
-        position: absolute;
-        top: 22px;
-        width: 0;
-        z-index: 1;
-        left: 30px;
-        border: medium solid white;
-        border-width: 10px 10px 10px 0;
-        border-color: transparent white transparent transparent;
     }
     
     /* Fix the circle for containers on the right side */
     .right::after {
-        left: -16px;
+        left: -14px;
     }
     
     /* The actual content */
     .main {
-        padding: 20px 30px;
+        padding: 10px 50px;
         position: relative;
         border-radius: 6px;
     }
@@ -76,8 +48,8 @@ timelineItemTemplate.innerHTML = `
 
   <div class="item">
     <div class="main">
-        <h2 class="timestamp"></h2>
         <p class="content"></p>
+        <b><p class="timestamp"></p></b>
     </div>
    </div>
   `
@@ -142,10 +114,11 @@ class TimelineItem extends HTMLElement {
     console.log('inside set position')
     if (dir) {
       this.setAttribute('position', dir)
+      this.updatePosition();
     } else {
-      this.removeAttribute('position')
+      // left by default.
+      this.setAttribute('position', 'left')
     }
-    this.loadContent()
   }
 
   constructor () {
@@ -162,6 +135,25 @@ class TimelineItem extends HTMLElement {
   connectedCallback() {
     console.log("inside callback")
     this.loadContent();
+    this.updatePosition();
+  }
+
+  updatePosition() {
+      console.log("inside position " + this.position);
+
+      // update whether timeline item is on left or right on attribute change.
+      if(this.position === 'left') {
+        this.item.classList.remove(['right']);
+        this.item.classList.add(['left']);
+      } else if (this.position === 'right') {
+        this.item.classList.remove(['left']);
+        this.item.classList.add(['right']);
+      } else {
+        // Left is default.
+        this.item.classList.remove(['right']);
+        this.item.classList.add(['left']);
+      }
+      console.log('after ' + this.item.classList)
   }
 
   loadContent () {

@@ -17,13 +17,23 @@
     <body>
       <!-- <core-hello rainbow lang='jp'></core-hello> -->
 
-      <timeline-element>
-        <timeline-item timestamp="2016" content="item1"></timeline-item>
-        <timeline-item timestamp="2017" content="item2"></timeline-item>
+      <timeline-element style="width: 60%; margin: 0 auto;">
+        <timeline-item timestamp="May, 19, 5:40PM" content="ripple button1 was pushed: " position='right'></timeline-item>
+        <timeline-item timestamp="May, 19, 5:39PM" content="ripple button2 was pushed:" position='left'></timeline-item>
+        <timeline-item timestamp="May, 19, 5:38PM" content="ripple button3 was pushed:" position='right'></timeline-item>
+        <timeline-item timestamp="May, 19, 5:37PM" content="ripple button4 was pushed:" position='left'></timeline-item>
+        <timeline-item timestamp="May, 19, 5:36PM" content="ripple button5 was pushed:" position='right'></timeline-item>
       </timeline-element>
 
       <!-- <image-carousel number=8 imageFolder='img'>Title</image-carousel> -->
       <!-- <ripple-button-group contents="Content; Longer Content; S"></ripple-button-group> -->
 
+    <script>
+      const component = new TimelineItem();
+      document.onclick = function() {
+        let timeline = document.getElementsByTagName('timeline-element');
+        
+      }
+    </script>
     </body>
 </html>
