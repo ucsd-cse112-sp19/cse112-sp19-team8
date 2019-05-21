@@ -36,18 +36,38 @@ button .ripple {
 <div class = "container">
 </div>
 `
-
+/**
+ * Creates a RippleButton custom Web Element, capable of creating multiple buttons of
+ * varying sizes and texts.
+ * @class
+ * @property {string} content - The text displayed by the button.
+ * @property {string} class - The class name of the button.
+ */
 class RippleButton extends HTMLElement {
+  
+  /**
+   * Fires when an instance of the button is created.
+   */
   constructor () {
     super()
     this.attachShadow({ mode: 'open' })
     this.shadowRoot.appendChild(buttonTemplate.content.cloneNode(true))
   }
 
+  /**
+   * Returns the content of the button.
+   * @function
+   * @returns {string} - The string to be displayed by the button.
+   */
   get contents () {
     return this.getAttribute('content')
   }
 
+  /**
+   * Returns the class of the button.
+   * @function
+   * @returns {string} - A string indicating the class name.
+   */
   get class () {
     if (this.hasAttribute('class')) { return this.getAttribute('class') } else { return 'default' }
   }
@@ -56,9 +76,17 @@ class RippleButton extends HTMLElement {
     this.update()
   }
 
+  /**
+   * Updates the button to have functionality and text.
+   * @function
+   */
   update () {
     var div = this.shadowRoot.querySelector('.container')
+
+    // Creates the button element
     var button = document.createElement('button')
+
+    // Adds button response functionality
     button.addEventListener('click', function (e) {
       for (let i = 0; i < this.children.length; i++) {
         this.children[0].remove()
@@ -76,6 +104,8 @@ class RippleButton extends HTMLElement {
       circle.style.left = e.clientX - rect.left - d / 2 + 'px'
       circle.style.top = e.clientY - rect.top - d / 2 + 'px'
     })
+
+    // Sets attributes and contents of the button
     button.setAttribute('class', this.class)
     button.innerHTML = this.contents
     div.appendChild(button)
