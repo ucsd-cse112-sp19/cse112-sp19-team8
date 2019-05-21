@@ -31,14 +31,14 @@ carouselTemplate.innerHTML = `
   </table>
   `
 /**
- * Creates a Carousel custom Web Element, capable of dispalying multiple images.
+ * Creates a Carousel custom Web Element, capable of displaying multiple images.
  * One image is displayed in front at a time. Two images are displayed on each side.
  * @class
- * @property {number}    - 'number' - Number of images.
- * @property {string}    - 'imagefolder' - The directory to grab images from.
- * @property {number}    - 'interval' - How frequently the front image is changed.
- * @property {string}    - 'display' - Changes display order. Can be "normal", "reverse", or "random".
- * @property {bool}      - 'blur' - Determines if images on the sides are blurred or not.
+ * @property {number} number - Number of images.
+ * @property {string} imagefolder - The directory to grab images from.
+ * @property {number} interval - How frequently the front image is changed.
+ * @property {string} display - Changes display order. Can be "normal", "reverse", or "random".
+ * @property {bool} blur - Determines if images on the sides are blurred or not.
  */
 class Carousel extends HTMLElement {
 
