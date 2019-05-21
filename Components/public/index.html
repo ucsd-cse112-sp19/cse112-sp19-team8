@@ -1,6 +1,8 @@
 <!DOCTYPE html>
     <html lang="en">
-   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <head>
         <meta charset="UTF-8">
         <title>ES2015 Web Component Tutorial</title>
@@ -13,6 +15,7 @@
     <body>
       <core-hello rainbow lang='jp'></core-hello>
 
+      <div class="container">
       <timeline-element style="width: 60%; margin: 0 auto;">
         <timeline-item id="toChange" timestamp="May, 19, 5:40PM" content="ripple button1 was pushed: " position='right'></timeline-item>
         <timeline-item timestamp="May, 19, 5:39PM" content="ripple button2 was pushed:" position='left'></timeline-item>
@@ -20,6 +23,7 @@
         <timeline-item timestamp="May, 19, 5:37PM" content="ripple button4 was pushed:" position='left'></timeline-item>
         <timeline-item timestamp="May, 19, 5:36PM" content="ripple button5 was pushed:" position='right'></timeline-item>
       </timeline-element>
+      </div>
 
       <image-carousel number=8 imageFolder='img'>Title</image-carousel>
 
