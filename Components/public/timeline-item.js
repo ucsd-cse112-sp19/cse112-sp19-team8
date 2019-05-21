@@ -54,8 +54,9 @@ timelineItemTemplate.innerHTML = `
    </div>
   `
 
-/*
+/**
  * Timeline Class 
+ * @class
  * @property {String} timestamp - time for item component
  * @property {String} color - TODO the color of the node for this timeline item.
  * @property {String} position - whether on "left" or "right"
