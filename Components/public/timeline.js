@@ -26,17 +26,27 @@ timelineTemplate.innerHTML = `
   <slot></slot>
   `
 
-/*
- * Timeline Class 
- * @property reverse - set if timeline should show in reverse order.
+/**
+ * Timeline class
+ * @class
+ * @property {bool} reverse - Set if timeline should show in reverse order.
  */
 class Timeline extends HTMLElement {
-  // TODO 
+  
+  /**
+   * See if the elements in the timeline are reversed. (TODO)
+   * @function
+   * @returns {bool} - True if the order is reversed, else false.
+   */
   get reverse () {
     return this.hasAttribute('reverse')
   }
 
-  // TODO - reverses order of the elements.
+  /**
+   * Set if the elements should be reversed. (TODO)
+   * @function
+   * @param {bool} val - True if the order should be reversed, else false.
+   */
   set reverse (val) {
     console.log('inside set reverse.')
     if (val) {
@@ -46,6 +56,10 @@ class Timeline extends HTMLElement {
     }
   }
 
+  /**
+   * Fires when an instance of the timeline is created.
+   * @constructor
+   */
   constructor () {
     super()
     this.attachShadow({ mode: 'open' })
