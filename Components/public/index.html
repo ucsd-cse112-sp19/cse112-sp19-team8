@@ -16,7 +16,7 @@
       <core-hello rainbow lang='jp'></core-hello>
 
       <div class="container">
-      <timeline-element style="width: 60%; margin: 0 auto;">
+      <timeline-element id="timeline" style="width: 60%; margin: 0 auto;">
         <timeline-item id="toChange" timestamp="May, 19, 5:40PM" content="ripple button1 was pushed: " position='right'></timeline-item>
         <timeline-item timestamp="May, 19, 5:39PM" content="ripple button2 was pushed:" position='left'></timeline-item>
         <timeline-item timestamp="May, 19, 5:38PM" content="ripple button3 was pushed:" position='right'></timeline-item>
@@ -30,12 +30,15 @@
       <ripple-button-group contents="Content; Longer Content; S"></ripple-button-group>
 
     <script>
-      // Click on the page to show the timeline element's content and position change.
-      const component = new TimelineItem();
+      // Click on the page to show the timeline element's content, position, and direction (reverses) change
       document.onclick = function() {
         let item = document.getElementById('toChange')
         item.content = "I changed"
         item.position = (item.position === 'left') ? 'right' : 'left'
+        
+        let timeline = document.getElementById('timeline');
+        console.log(timeline)
+        timeline.reverse = (timeline.reverse) ? null : true
       }
     </script>
     </body>

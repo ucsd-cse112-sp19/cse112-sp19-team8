@@ -2,15 +2,15 @@ const timelineTemplate = document.createElement('template')
 timelineTemplate.innerHTML = `
   <style>
     /* The actual timeline (the vertical ruler) */
-    :host {
+    .main {
         position: relative;
         max-width: 100%;
-        display: block;
+        display: flex;
         font-family: ''
     }
     
     /* The actual timeline (the vertical ruler) */
-    :host::after {
+    .main::after {
         content: '';
         position: absolute;
         width: 6px;
@@ -23,7 +23,9 @@ timelineTemplate.innerHTML = `
         display: block;
     }
   </style>
-  <slot></slot>
+  <div class="main" style="flex-direction: column-reverse">
+    <slot></slot>
+  </div>
   `
 
 /**
@@ -43,16 +45,18 @@ class Timeline extends HTMLElement {
   }
 
   /**
-   * Set if the elements should be reversed. (TODO)
+   * Set if the elements should be reversed.
    * @function
    * @param {bool} val - True if the order should be reversed, else false.
    */
   set reverse (val) {
     console.log('inside set reverse.')
     if (val) {
-      this.setAttribute('reverse', '')
+      this.setAttribute('reverse', true)
+      this.reverseItems();
     } else {
       this.removeAttribute('reverse')
+      this.reverseItems();
     }
   }
 
@@ -64,11 +68,20 @@ class Timeline extends HTMLElement {
     super()
     this.attachShadow({ mode: 'open' })
     this.shadowRoot.appendChild(timelineTemplate.content.cloneNode(true))
+
+    this.main = this.shadowRoot.querySelector('.main')
+    
   };
 
-  // TODO
-  reverseItems() {
+  connectedCallback() {
+    this.reverseItems();
+  }
+  
 
+  reverseItems() {
+    console.log("reverse??? " + this.reverse)
+    
+    this.main.style.flexDirection = (this.reverse) ? 'column-reverse' : 'column' 
   }
     
 }

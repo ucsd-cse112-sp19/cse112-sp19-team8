@@ -145,7 +145,6 @@ class TimelineItem extends HTMLElement {
 
   // Updates whether timeline element is on the left or right of the bar.
   updatePosition() {
-      console.log("inside position " + this.position);
 
       // update whether timeline item is on left or right on attribute change.
       if(this.position === 'left') {
@@ -159,7 +158,6 @@ class TimelineItem extends HTMLElement {
         this.item.classList.remove(['right']);
         this.item.classList.add(['left']);
       }
-      console.log('after ' + this.item.classList)
   }
 
   updateColor() {
