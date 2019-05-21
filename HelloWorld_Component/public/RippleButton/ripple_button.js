@@ -1,5 +1,9 @@
 const buttonTemplate = document.createElement('template')
 buttonTemplate.innerHTML = `
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 <style>
 button {
   font-size: 1.3em;
@@ -8,12 +12,11 @@ button {
   margin: 3px;
   border: 0;
   outline: 0;
+  text-transform: uppercase;
   color: white;
   background-color: #2196F3;
-  text-transform: uppercase;
   border-radius: 0.15em;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-  
   overflow: hidden;
   position: relative;
 }
@@ -76,7 +79,11 @@ class RippleButton extends HTMLElement {
       circle.style.left = e.clientX - rect.left - d / 2 + 'px'
       circle.style.top = e.clientY - rect.top - d / 2 + 'px'
     })
-    button.setAttribute('class', this.class)
+    button.setAttribute('class', this.class);
+    button.setAttribute('type', 'button');
+    button.classList.add('btn');
+    button.classList.add('btn-primary');
+    button.classList.add('btn-lg');
     button.innerHTML = this.contents
     div.appendChild(button)
   }
