@@ -41,7 +41,6 @@ carouselTemplate.innerHTML = `
  * @property {bool} blur - Determines if images on the sides are blurred or not.
  */
 class Carousel extends HTMLElement {
-
   /**
    * Returns the attributes of the carousel. These can be set to change the carousel behavior.
    * @function
@@ -98,7 +97,6 @@ class Carousel extends HTMLElement {
    */
   get interval () {
     if (this.hasAttribute('interval')) {
-
       // Default time interval is 2000
       if (this.getAttribute('interval') === '') {
         this.interval = 2000
@@ -131,7 +129,6 @@ class Carousel extends HTMLElement {
    */
   get display () {
     if (this.hasAttribute('display')) {
-
       // Default display is forward (normal)
       if (this.getAttribute('display') === '') {
         this.display = 'normal'
@@ -160,7 +157,6 @@ class Carousel extends HTMLElement {
    */
   get blur () {
     if (this.hasAttribute('blur')) {
-
       // Carousel has blur by default
       if (this.getAttribute('blur') === '') {
         this.blur = 'true'
@@ -248,7 +244,6 @@ class Carousel extends HTMLElement {
    * @param {number} val - The value to be transformed to array boundaries.
    */
   bound (val) {
-    
     // If the value is negative, we will decrement.
     if (val < 0) { return this.number - 1 };
 

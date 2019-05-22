@@ -47,7 +47,6 @@ button .ripple {
  * @property {string} class - The class name of the button.
  */
 class RippleButton extends HTMLElement {
-  
   /**
    * Fires when an instance of the button is created.
    */
@@ -109,11 +108,11 @@ class RippleButton extends HTMLElement {
     })
 
     // Sets attributes and contents of the button
-    button.setAttribute('class', this.class);
-    button.setAttribute('type', 'button');
-    button.classList.add('btn');
-    button.classList.add('btn-primary');
-    button.classList.add('btn-lg');
+    button.setAttribute('class', this.class)
+    button.setAttribute('type', 'button')
+    button.classList.add('btn')
+    button.classList.add('btn-primary')
+    button.classList.add('btn-lg')
     button.innerHTML = this.contents
     div.appendChild(button)
   }

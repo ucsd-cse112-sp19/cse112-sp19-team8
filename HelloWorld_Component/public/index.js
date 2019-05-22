@@ -5,8 +5,8 @@ window.onload = () => {
   let carousel = document.getElementsByTagName('image-carousel')[0]
   for (let i = 0; i < buttons.length; i++) {
     let button = buttons[i].shadowRoot.querySelector('button')
-    let pattern = button.getAttribute('class').split(" ")[0]
-    console.log(pattern);
+    let pattern = button.getAttribute('class').split(' ')[0]
+    console.log(pattern)
     if (pattern === 'interval') {
       if (a) {
         button.addEventListener('click', function (e) {
