@@ -64,11 +64,21 @@ timelineItemTemplate.innerHTML = `
  * @property {String} content - content for the timeline item.
  */
 class TimelineItem extends HTMLElement {
+
+  /**
+   * Returns the item's timestamp.
+   * @function
+   * @param {String} - The timestamp associated with some event the element represents.
+   */
   get timestamp () {
     return this.getAttribute('timestamp')
   }
 
-  // Sets item's timestamp and updates with loadContent.
+  /**
+   * Sets item's timestamp and updates the element with loadContent. 
+   * @function
+   * @param {String} time - The timestamp associated with the element. If no time is given, timestamp is removed.
+   */ 
   set timestamp (time) {
     console.log('inside set timestamp')
     if (time) {
@@ -79,11 +89,20 @@ class TimelineItem extends HTMLElement {
     this.loadContent()
   }
 
+  /**
+   * Returns the text associated with the element.
+   * @function
+   * @returns {String} - The text description of some event the element represents.
+   */
   get content () {
     return this.getAttribute('content')
   }
 
-  // Sets timeline's description and reloads content.
+  /**
+   * Sets timeline's description and reloads content.
+   * @function
+   * @param {String} txt - The text to associate with the element. If none given, text is removed.
+   */
   set content (txt) {
     console.log('inside set content')
     if (txt) {
@@ -94,11 +113,20 @@ class TimelineItem extends HTMLElement {
     this.loadContent()
   }
 
+  /**
+   * Returns the color of the timeline node.
+   * @function
+   * @returns {String}
+   */
   get color () {
     return this.getAttribute('color')
   }
 
-  // Returns the color of the node on the timeline for this element and updates.
+  /**
+   * Returns the color of the node on the timeline for this element and updates.
+   * @function
+   * @param {String} col - The color the node should have
+   */
   set color (col) {
     console.log('inside set color')
     if (col) {
@@ -113,7 +141,12 @@ class TimelineItem extends HTMLElement {
     return this.getAttribute('position')
   }
 
-  // Sets position of timeline element to either left or right.
+  /**
+   * Sets the position of the item to be on the left or on the right of the
+   * timeline.
+   * @function
+   * @param {String} dir - Can set item position to left or right. Default is left.
+   */
   set position (dir) {
     console.log('inside set position')
     if (dir) {
@@ -125,6 +158,11 @@ class TimelineItem extends HTMLElement {
     }
   }
 
+  /**
+   * Fires whenever a timeline item is instantiated. Sets up framework for
+   * item to have a timestamp and text content.
+   * @constructor
+   */
   constructor () {
     super()
     this.attachShadow({ mode: 'open' })
@@ -141,7 +179,11 @@ class TimelineItem extends HTMLElement {
     this.updatePosition()
   }
 
-  // Updates whether timeline element is on the left or right of the bar.
+  /**
+   * Updates whether timeline element is on the left or right of the timeline's bar.
+   * If the position is not set, left is set as default.
+   * @function
+   */
   updatePosition () {
     // update whether timeline item is on left or right on attribute change.
     if (this.position === 'left') {
@@ -161,7 +203,10 @@ class TimelineItem extends HTMLElement {
     // TODO change ::after's selector for color of node.
   }
 
-  // Loads timestamp and description into element.
+  /**
+   * Loads timestamp and description into element so the changes are visible.
+   * @function
+   */
   loadContent () {
     this.mainContent.textContent = this.content
     console.log(this.content)
