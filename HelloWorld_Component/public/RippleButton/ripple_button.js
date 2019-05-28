@@ -3,7 +3,6 @@ buttonTemplate.innerHTML = `
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
 <style>
 button {
   font-size: 1.3em;
@@ -20,7 +19,6 @@ button {
   overflow: hidden;
   position: relative;
 }
-
 button .ripple {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.7);
@@ -28,7 +26,6 @@ button .ripple {
   transform: scale(0);
   animation: ripple 0.6s linear;
 }
-
 @keyframes ripple {
   to {
     transform: scale(2.5);
@@ -109,10 +106,10 @@ class RippleButton extends HTMLElement {
 
     // Sets attributes and contents of the button
     button.setAttribute('class', this.class)
-    button.setAttribute('type', 'button')
-    button.classList.add('btn')
-    button.classList.add('btn-primary')
-    button.classList.add('btn-lg')
+    // button.setAttribute('type', 'button')
+    // button.classList.add('btn')
+    // button.classList.add('btn-primary')
+    // button.classList.add('btn-lg')
     button.innerHTML = this.contents
     div.appendChild(button)
   }
