@@ -1,2 +1,0 @@
-describe('Testing component Timeline', () => {
-})

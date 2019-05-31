@@ -1,11 +1,212 @@
-	<!DOCTYPE html>
-	    <html lang="en">
-	    <head>
-	        <meta charset="UTF-8">
-	        <title>Alcohol</title>
-	    </head>
-	    <body>
-	      <core-hello lang = "Greek" rainbow></core-hello>
-	    </body>
-		<script src="/scripts/main.js"></script>
+	
+	<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="CSE 112, Team Ide8tion, Software Engineering">
+		<title>Team Ide8tion</title>
+	
+		<!-- custom CSS/Bootstrap -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat|Source+Code+Pro" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Niramit:400,700" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<script src="Carousel/carousel.js" type="text/javascript"></script>
+		<script src="RippleButton/ripple_button.js" type="text/javascript"></script>
+		<script src="Timeline/timeline-item.js" type="text/javascript"></script>
+		<script src="Timeline/timeline.js" type="text/javascript"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+		 <!-- latest compiled jquery for bootstrap -->
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		 <!-- Latest compiled JavaScript for bootstrap -->
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+		<script>
+			$(document).ready(function(){
+				// Add smooth scrolling to all links
+				$("a").on('click', function(event) {
+					// Make sure this.hash has a value before overriding default behavior
+					if (this.hash !== "") {
+						event.preventDefault();
+						var hash = this.hash;
+						// Using jQuery's animate() method to add smooth page scroll
+						// The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+						$('html, body').animate({
+							scrollTop: $(hash).offset().top
+						}, 500, function(){
+							window.location.hash = hash;
+						});
+					}
+				});
+			});
+	</script>
+	
+	</head>
+	<body class="home">
+		<div class="title-header">
+		<div class="title-content">
+			<h1 style="border-bottom: solid 1px white;">Team ID8TION</h1>
+			<span>University of California, San Diego CSE 112 Team #8</span>
+		</div>
+		</div>
+	
+		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #619967;">
+			<!-- TODO: Logo-->
+			<a class="navbar-brand" href="#"><img src="./img/ID8TIONLogo.png" class="nav-logo"></img></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#about-us">About Us</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#team">The Team</a>
+				</li>
+			</ul>
+		</div>
+		</nav>
+	
+	<div class="maincontent">
+		<img src="img/image.png" class="banner" style="margin-top: 40px; border-radius: 8px;"/>
+			<div class ="container" id='about-us'>
+				<h2>Who are we?</h2>
+				<text><i>Hi there! We are team number 8 aka Team Ide8tion! We strive to be a team bound together
+					through cohesiveness, communication, and FUN! Excited to take on CSE 112 and learn with Powell, Peter
+					and the rest of the CSE 112 company :)
+				</i></text>
+			</div>
+	
+		<div class="container" id="team">
+			<h2>The Team</h2>
+			<timeline-element class="container" id="timeline" style="width: 70%; margin: 0 auto;">
+				<timeline-item>
+
+				</timeline-item>
+			</timeline-element>
+			<div class="row teammember">
+					<div class="col-md-3">
+						<img src="./img/Joel.jpg" class="col-img"/>
+					</div>
+					<div class="col">
+						<h4>Joel Loo</h4>
+						My name is Joel Loo. I am a 4th year Cognitive Science major/Computer Science minor, interested in UX/UI design. I am our team's
+						lead this quarter, and I hope that through fostering collaborative problem solving and interpersonal connections, our team will strive to
+						succeed in our work. In my free time I enjoy going to music festivals and practicing graphic design!
+					</div>
+			</div>
+			<div class="row teammember">
+					<div class="col-md-3">
+						<img src="./img/Sarah.jpg" class="col-img"/>
+					</div>
+					<div class="col">
+						<h4>Sarah Gemperle</h4>
+						I'm a tools and utility team member, and a current 4th year studying Mathematics-Computer Science with a Business minor!
+						Love learning new web-dev and application development technologies.
+						I enjoy hanging out with friends, music, and travel!
+					</div>
+			</div>
+			<div class="row teammember">
+					<div class="col-md-3">
+						<img src="./img/Vincent.jpg" class="col-img"/>
+					</div>
+					<div class="col">
+						<h4>Vincent Cannala</h4>
+	
+					</div>
+			</div>
+			<div class="row teammember">
+					<div class="col-md-3">
+						<img src="./img/Colin.jpg" class="col-img"/>
+					</div>
+					<div class="col">
+						<h4>Colin Van Winkle</h4>
+						My name is Colin and I’m a 4th year CS major on the Tool & Utility team. As of lately
+						I’ve taken an interest in web development. In my spare time I like to make music and play spikeball
+						at the beach. :)
+					</div>
+			</div>
+			<div class="row teammember">
+					<div class="col-md-3">
+						<img src="./img/Charlotte.jpg" class="col-img"/>
+					</div>
+					<div class="col">
+						<h4>Charlotte Forgey-Jahn</h4>
+						Hi I'm Charlotte and I'm a fourth year math-computer science major. In my spare time I like running, being at the beach, and browsing Reddit.
+					</div>
+			</div>
+			<div class="row teammember">
+					<div class="col-md-3">
+						<img src="./img/JoshQuan.jpg" class="col-img"/>
+					</div>
+					<div class="col">
+						<h4>Joshua Quan</h4>
+						I'm Joshua Quan, I'm one of the coders for the group. I'm a 3rd-year Computer Science
+						major/Cognitive Science minor. I like to make small games in Unity and draw in my spare time!
+					</div>
+			</div>
+			<div class="row teammember">
+					<div class="col-md-3">
+						<img src="./img/Kuo.jpg" class="col-img"/>
+					</div>
+					<div class="col">
+						<h4>Kuo</h4>
+						I'm Kuo Liang, a 4th-year computer science student on the coder team. I like sleeping in my spare time
+					</div>
+			</div>
+			<div class="row teammember">
+					<div class="col-md-3">
+						<img src="./img/MuzhouLi.jpg" class="col-img"/>
+					</div>
+					<div class="col">
+						<h4>Muzhou li</h4>
+						I am Muzhou(Jim). I’m the co-lead of the team. I major in CE, and I’m interested in machine learning, the biggest fad in the industry over the past few years.
+					</div>
+			</div>
+			<div class="row teammember">
+					<div class="col-md-3">
+						<img src="./img/Tommy.jpg" class="col-img"/>
+					</div>
+					<div class="col">
+						<h4>Tommy</h4>
+							I am Hanqing Zhang, a coder of the team. A fourth-year undergraduate majoring in CS. Nothing special, nothing new.
+					</div>
+			</div>
+			<div class="row teammember">
+					<div class="col-md-3">
+						<img src="./img/Alex.jpg" class="col-img"/>
+					</div>
+					<div class="col">
+						<h4>Yifan (Alex) Li</h4>
+						My name is Yifan(Alex) on the DevOps team. I'm a fourth year CS major/math minor. I enjoy snowboarding during winter time.
+					</div>
+			</div>
+			<div class="row teammember">
+					<div class="col-md-3">
+						<img src="./img/Zijin.jpg" class="col-img"/>
+					</div>
+					<div class="col">
+						<h4>Zijin</h4>
+						I’m Zijin Fu, a 4th year computer science student on the quality assurance team. I’m interested in full-stack development.
+						Love speeding and gaming in my spare time.
+					</div>
+			</div>
+		</div>
+	
+	
+		</div>
+	
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	
+	</body>
 	</html>
