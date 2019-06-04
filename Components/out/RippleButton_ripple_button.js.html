@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>RippleButton/ripple_button.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Carousel.html">Carousel</a></li><li><a href="CoreHello.html">CoreHello</a></li><li><a href="RippleButton.html">RippleButton</a></li><li><a href="Timeline.html">Timeline</a></li><li><a href="TimelineItem.html">TimelineItem</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">RippleButton/ripple_button.js</h1>
+    
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const buttonTemplate = document.createElement('template')
+buttonTemplate.innerHTML = `
+&lt;link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">&lt;/script>
+&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">&lt;/script>
+&lt;style>
+button {
+  font-size: 1.3em;
+  width: 10em;
+  padding: 1em 2em;
+  margin: 3px;
+  border: 0;
+  outline: 0;
+  text-transform: uppercase;
+  color: white;
+  background-color: #2196F3;
+  border-radius: 0.15em;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+button .ripple {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+@keyframes ripple {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+&lt;/style>
+&lt;div class = "container">
+&lt;/div>
+`
+/**
+ * Creates a RippleButton custom Web Element, capable of creating multiple buttons of
+ * varying sizes and texts.
+ * @class
+ * @property {string} content - The text displayed by the button.
+ * @property {string} class - The class name of the button.
+ * 
+ * @example
+ * 
+ * &lt;ripple-button class='yesbutton' content="Yes">&lt;/ripple-button>
+ * &lt;ripple-button class='nobutton' content="No">&lt;/ripple-button>
+ * 
+ */
+class RippleButton extends HTMLElement {
+  /**
+   * Fires when an instance of the button is created.
+   */
+  constructor () {
+    super()
+    this.attachShadow({ mode: 'open' })
+    this.shadowRoot.appendChild(buttonTemplate.content.cloneNode(true))
+  }
+
+  /*
+   * Returns the content of the button.
+   * @function
+   * @returns {string} - The string to be displayed by the button.
+   */
+  get contents () {
+    return this.getAttribute('content')
+  }
+
+  /*
+   * Returns the class of the button.
+   * @function
+   * @returns {string} - A string indicating the class name.
+   */
+  get class () {
+    if (this.hasAttribute('class')) { return this.getAttribute('class') } else { return 'default' }
+  }
+
+  connectedCallback () {
+    this.update()
+  }
+
+  /*
+   * Updates the button to have functionality and text.
+   * @function
+   */
+  update () {
+    var div = this.shadowRoot.querySelector('.container')
+
+    // Creates the button element
+    var button = document.createElement('button')
+
+    // Adds button response functionality
+    button.addEventListener('click', function (e) {
+      for (let i = 0; i &lt; this.children.length; i++) {
+        this.children[0].remove()
+      }
+
+      var circle = document.createElement('div')
+      circle.classList.add('ripple')
+      this.appendChild(circle)
+
+      var d = Math.max(this.clientWidth, this.clientHeight)
+
+      circle.style.width = circle.style.height = d + 'px'
+
+      var rect = this.getBoundingClientRect()
+      circle.style.left = e.clientX - rect.left - d / 2 + 'px'
+      circle.style.top = e.clientY - rect.top - d / 2 + 'px'
+    })
+
+    // Sets attributes and contents of the button
+    button.setAttribute('class', this.class)
+    // button.setAttribute('type', 'button')
+    // button.classList.add('btn')
+    // button.classList.add('btn-primary')
+    // button.classList.add('btn-lg')
+    button.innerHTML = this.contents
+    div.appendChild(button)
+  }
+}
+
+window.customElements.define('ripple-button', RippleButton)
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Tue Jun 04 2019 10:25:38 GMT-0700 (PDT) using the Toast theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
