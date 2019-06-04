@@ -5,6 +5,7 @@ timelineItemTemplate.innerHTML = `
     .item {
         position: relative;
         width: 50%;
+        font-family: 'Roboto', sans-serif;
     }
 
     /* The circles on the timeline */
@@ -44,12 +45,16 @@ timelineItemTemplate.innerHTML = `
         position: relative;
         border-radius: 6px;
     }
+
+    .timestamp {
+      font-size: 20px;
+    }
   </style>
 
   <div class="item">
     <div class="main">
       <b><p class="timestamp"></p></b>
-      <p class="content"></p>    
+      <p class="content"></p>
     </div>
    </div>
   `
