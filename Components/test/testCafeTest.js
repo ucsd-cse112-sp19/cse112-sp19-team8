@@ -1,6 +1,6 @@
 //just to make sure testcafe is integrated correctly
 
-import { Selector } from 'testcafe';
+import Page from './page-mode';
 
 fixture `My fixture`
     .page `https://devexpress.github.io/testcafe/example/`;
