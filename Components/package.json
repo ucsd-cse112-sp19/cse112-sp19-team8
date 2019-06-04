@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js && standard --fix"
+    "test2": "testcafe chrome,firefox /test/testCafetest.js" 
   },
   "author": "Ayo Isaiah",
   "license": "MIT",
