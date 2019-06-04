@@ -32,8 +32,8 @@ timelineTemplate.innerHTML = `
  * Creates a timeline element that arranges events in a column in sequential order
  * @class
  * @property {bool} reverse - Set if timeline should show in reverse order (top to bottom, bottom to top)
- * @example 
- * 
+ * @example
+ *
  * <timeline-element reverse="false">
  *    <timeline-item timestamp="Peter committed 06/02/2019 20:46" content="Updated main page style."></timeline-item>
  *    <timeline-item timestamp="Peter committed 06/03/2019 10:30" content="Added test for component."></timeline-item>

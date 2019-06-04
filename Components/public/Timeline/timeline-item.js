@@ -60,7 +60,7 @@ timelineItemTemplate.innerHTML = `
  * @property {String} timestamp - time for item component
  * @property {String} position - whether on "left" or "right"
  * @property {String} content - content for the timeline item.
- * 
+ *
  * @example
  * <timeline-element>
  *  <timeline-item timestamp="2000 - 2010" content="Worked at Pint" position="left"> </timeline-item>
@@ -68,7 +68,6 @@ timelineItemTemplate.innerHTML = `
  * <timeline-element>
  */
 class TimelineItem extends HTMLElement {
-
   /*
    * Returns the item's timestamp.
    * @function

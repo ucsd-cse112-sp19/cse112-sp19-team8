@@ -39,11 +39,11 @@ carouselTemplate.innerHTML = `
  * @property {number} interval - How frequently the front image is changed.
  * @property {string} display - Changes display order. Can be "normal", "reverse", or "random".
  * @property {bool} blur - Determines if images on the sides are blurred or not.
- * 
+ *
  * @example
- * 
+ *
  * <image-carousel number=8 imageFolder='img' interval=1500 display blur='false'> </image-carousel>
- * 
+ *
  */
 class Carousel extends HTMLElement {
   /*

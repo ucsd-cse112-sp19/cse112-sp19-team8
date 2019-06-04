@@ -37,10 +37,7 @@
       "RippleButton"
     ],
     "ignore": [
-      "public/out",
-      "public/Carousel/out",
-      "public/Timeline/out",
-      "public/RippleButton/out"
+      "out"
     ]
   }
 }
