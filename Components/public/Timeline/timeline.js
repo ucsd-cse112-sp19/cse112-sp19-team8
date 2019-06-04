@@ -32,10 +32,17 @@ timelineTemplate.innerHTML = `
  * Creates a timeline element that arranges events in a column in sequential order
  * @class
  * @property {bool} reverse - Set if timeline should show in reverse order (top to bottom, bottom to top)
+ * @example
+ *
+ * <timeline-element reverse="false">
+ *    <timeline-item timestamp="Peter committed 06/02/2019 20:46" content="Updated main page style."></timeline-item>
+ *    <timeline-item timestamp="Peter committed 06/03/2019 10:30" content="Added test for component."></timeline-item>
+ *    <timeline-item timestamp="Peter committed 06/03/2019 15:21" content="Added test for component."></timeline-item>
+ * </timeline-element>
  */
 class Timeline extends HTMLElement {
-  /**
-   * See if the elements in the timeline are reversed. (TODO)
+  /*
+   * See if the elements in the timeline are reversed.
    * @function
    * @returns {bool} - True if the order is reversed, else false.
    */
@@ -43,7 +50,7 @@ class Timeline extends HTMLElement {
     return this.hasAttribute('reverse')
   }
 
-  /**
+  /*
    * Set if the elements should be reversed.
    * @function
    * @param {bool} val - True if the order should be reversed, else false.
@@ -59,7 +66,7 @@ class Timeline extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * Fires when an instance of the timeline is created.
    * @constructor
    */
@@ -75,7 +82,7 @@ class Timeline extends HTMLElement {
     this.reverseItems()
   }
 
-  /**
+  /*
    * Flips the direction the flex items are arranged in the container.
    * See reference: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
    * @function

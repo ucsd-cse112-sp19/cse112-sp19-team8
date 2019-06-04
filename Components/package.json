@@ -4,8 +4,8 @@
   "description": "A simple website built with Node, Express and Pug",
   "main": "server.js",
   "scripts": {
-    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js && standard --fix",
-    "test2": "testcafe chrome,firefox /test/testCafetest.js" 
+    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js && standard --fix && testcafe chrome,firefox /test/testCafetest.js",
+    "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },
   "author": "Ayo Isaiah",
   "license": "MIT",
@@ -21,7 +21,8 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-mocha": "^1.3.0",
     "pm2": "^2.10.3",
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "toast-jsdoc": "^1.0.2"
   },
   "standard": {
     "env": [
@@ -36,10 +37,7 @@
       "RippleButton"
     ],
     "ignore": [
-      "public/out",
-      "public/Carousel/out",
-      "public/Timeline/out",
-      "public/RippleButton/out"
+      "out"
     ]
   }
 }

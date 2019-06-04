@@ -1,0 +1,39 @@
+<!-- To add to TimelineItem.html -->
+    <script src="../public/Timeline/timeline-item.js"></script>
+    <script src="../public/Timeline/timeline.js"> </script>
+
+    <timeline-element>
+        <timeline-item timestamp="2000 - 2010" content="Worked at Pint" position="left"></timeline-item>
+        <timeline-item timestamp="2015-2040" content="Worked at Black Mountain" position="right"></timeline-item>
+    </timeline-element>
+
+<!-- To add to Timeline.html -->
+    <script src="../public/Timeline/timeline-item.js"></script>
+    <script src="../public/Timeline/timeline.js"> </script>
+
+    <timeline-element reverse=false>
+        <timeline-item timestamp="Peter committed 06/02/2019 20:46" content="Updated main page style."></timeline-item>
+        <timeline-item timestamp="Peter committed 06/03/2019 10:30" content="Added test for component."></timeline-item>
+        <timeline-item timestamp="Peter committed 06/03/2019 15:21" content="Added test for component."></timeline-item>
+    </timeline-element>
+
+    <script>
+        document.getElementsByClassName("demobtn")[0].addEventListener("click", function(){
+            console.log(document.getElementsByTagName('timeline-element')[0].reverse)
+            let timeline = document.getElementsByTagName('timeline-element')[0]; 
+            timeline.reverse = (timeline.reverse) ? false : true;
+        });
+    </script>
+
+<!-- To add to Carousel Component-->
+    <script src="../public/Carousel/carousel.js" type="text/javascript"></script>
+
+    <image-carousel number=8 imageFolder='img' interval=1500 display blur='false'> </image-carousel>
+
+<!-- For Ripple button-->
+    <script src="../public/RippleButton/ripple_button.js" type="text/javascript"></script>
+
+    <ripple-button class='yesbutton' content="Yes"> </ripple-button>
+    <ripple-button class='nobutton' content="No"> </ripple-button>
+
+
