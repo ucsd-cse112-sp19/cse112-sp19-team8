@@ -5,8 +5,9 @@ timelineItemTemplate.innerHTML = `
     .item {
         position: relative;
         width: 50%;
+        font-family: 'Roboto', sans-serif;
     }
-    
+
     /* The circles on the timeline */
     .item::after {
         content: '';
@@ -20,36 +21,40 @@ timelineItemTemplate.innerHTML = `
         border-radius: 50%;
         z-index: 1;
     }
-    
+
     /* Place the container to the left */
     .left {
         text-align: right;
         left: 0;
     }
-    
+
     /* Place the container to the right */
     .right {
         text-align: left;
         left: 50%;
     }
-    
+
     /* Fix the circle for containers on the right side */
     .right::after {
         left: -14px;
     }
-    
+
     /* The actual content */
     .main {
         padding: 10px 50px;
         position: relative;
         border-radius: 6px;
     }
+
+    .timestamp {
+      font-size: 20px;
+    }
   </style>
 
   <div class="item">
     <div class="main">
-        <p class="content"></p>
-        <b><p class="timestamp"></p></b>
+      <b><p class="timestamp"></p></b>
+      <p class="content"></p>
     </div>
    </div>
   `
@@ -75,10 +80,10 @@ class TimelineItem extends HTMLElement {
   }
 
   /**
-   * Sets item's timestamp and updates the element with loadContent. 
+   * Sets item's timestamp and updates the element with loadContent.
    * @function
    * @param {String} time - The timestamp associated with the element. If no time is given, timestamp is removed.
-   */ 
+   */
   set timestamp (time) {
     console.log('inside set timestamp')
     if (time) {

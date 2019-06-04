@@ -8,7 +8,7 @@ timelineTemplate.innerHTML = `
         display: flex;
         font-family: ''
     }
-    
+
     /* The actual timeline (the vertical ruler) */
     .main::after {
         content: '';
@@ -18,7 +18,7 @@ timelineTemplate.innerHTML = `
         top: 0;
         bottom: 0;
         left: 50%;
-    } 
+    }
     ::slotted {
         display: block;
     }
