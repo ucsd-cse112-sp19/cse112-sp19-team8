@@ -16,11 +16,11 @@ helloTemplate.innerHTML = `
 /**
  * Creates a CoreHello custom Web Element, that displays "Hello World".
  * @class
- * @property {bool}    - 'rainbow' - Whether text changes colors on an interval
- * @property {string}    - 'lang' - to display HelloWorld text in.
+ * @property {bool} rainbow - Whether text changes colors on an interval
+ * @property {string} lang - to display HelloWorld text in.
  */
 class CoreHello extends HTMLElement {
-  /**
+  /*
   * Returns whether this instance has 'rainbow' attribute.
   * @function
   * @returns {bool}
@@ -29,7 +29,7 @@ class CoreHello extends HTMLElement {
     return this.hasAttribute('rainbow')
   }
 
-  /**
+  /*
    * Sets this instance's rainbow attribute.
    * @function
    * @param {bool}  - true for make rainbow, false for static color.
@@ -42,7 +42,7 @@ class CoreHello extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * Returns this instance's 'lang' attribute.
    * @function
    * @returns {string}  - Shows current Core-Hello language.
@@ -51,7 +51,7 @@ class CoreHello extends HTMLElement {
     return this.getAttribute('lang')
   }
 
-  /**
+  /*
    * Sets this instance's lang attribute.
    * @function
    * @param {string}  - Retrieves the current Core-Hello language.

@@ -42,6 +42,12 @@ button .ripple {
  * @class
  * @property {string} content - The text displayed by the button.
  * @property {string} class - The class name of the button.
+ * 
+ * @example
+ * 
+ * <ripple-button class='yesbutton' content="Yes"></ripple-button>
+ * <ripple-button class='nobutton' content="No"></ripple-button>
+ * 
  */
 class RippleButton extends HTMLElement {
   /**
@@ -53,7 +59,7 @@ class RippleButton extends HTMLElement {
     this.shadowRoot.appendChild(buttonTemplate.content.cloneNode(true))
   }
 
-  /**
+  /*
    * Returns the content of the button.
    * @function
    * @returns {string} - The string to be displayed by the button.
@@ -62,7 +68,7 @@ class RippleButton extends HTMLElement {
     return this.getAttribute('content')
   }
 
-  /**
+  /*
    * Returns the class of the button.
    * @function
    * @returns {string} - A string indicating the class name.
@@ -75,7 +81,7 @@ class RippleButton extends HTMLElement {
     this.update()
   }
 
-  /**
+  /*
    * Updates the button to have functionality and text.
    * @function
    */

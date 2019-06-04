@@ -39,9 +39,14 @@ carouselTemplate.innerHTML = `
  * @property {number} interval - How frequently the front image is changed.
  * @property {string} display - Changes display order. Can be "normal", "reverse", or "random".
  * @property {bool} blur - Determines if images on the sides are blurred or not.
+ * 
+ * @example
+ * 
+ * <image-carousel number=8 imageFolder='img' interval=1500 display blur='false'> </image-carousel>
+ * 
  */
 class Carousel extends HTMLElement {
-  /**
+  /*
    * Returns the attributes of the carousel. These can be set to change the carousel behavior.
    * @function
    * @returns {string[]}
@@ -50,7 +55,7 @@ class Carousel extends HTMLElement {
     return ['number', 'imagefolder', 'interval', 'display', 'blur']
   }
 
-  /**
+  /*
   * Returns the number of images in the carousel.
   * @function
   * @returns {number} - Number of images displayed in the carousel.
@@ -59,7 +64,7 @@ class Carousel extends HTMLElement {
     return this.getAttribute('number')
   }
 
-  /**
+  /*
    * Sets the number of images in the carousel.
    * @function
    * @param {number} num - Number of images to display; must be 3 or greater.
@@ -70,7 +75,7 @@ class Carousel extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * Returns the image directory of the carousel.
    * @function
    * @returns {string} - The file path of the images folder.
@@ -79,7 +84,7 @@ class Carousel extends HTMLElement {
     return this.getAttribute('imagefolder')
   }
 
-  /**
+  /*
    * Sets the image directory of the carousel - where it will display images from.
    * @function
    * @param {string} path - The new file path of the images folder.
@@ -90,7 +95,7 @@ class Carousel extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * Gets the interval of the carousel - how quickly the front image is switched.
    * @function
    * @returns {number} - The delay between image switching.
@@ -109,7 +114,7 @@ class Carousel extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * Sets how frequently the front image is switched.
    * @function
    * @param {number} intv - The new delay between image switching.
@@ -122,7 +127,7 @@ class Carousel extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * Gets the image display order.
    * @function
    * @returns {string} - The display mode of the carousel.
@@ -141,7 +146,7 @@ class Carousel extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * Sets the image display order.
    * @function
    * @param {string} option - The display mode of the carousel. Valid modes: "normal", "reverse", "random".
@@ -150,7 +155,7 @@ class Carousel extends HTMLElement {
     if (option === 'normal' || option === 'reverse' || option === 'random') { this.setAttribute('display', option) }
   }
 
-  /**
+  /*
    * Gets bool indicating if the carousel's side images are blurred or not
    * @function
    * @returns {bool} - Indicates if carousel's side images are blurred or not.
@@ -169,7 +174,7 @@ class Carousel extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * Sets the blur for the carousel.
    * @function
    * @param {bool} option - True if the images on the side should blur, else false.
@@ -238,7 +243,7 @@ class Carousel extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * Returns a value that is within image array boundaries.
    * @function
    * @param {number} val - The value to be transformed to array boundaries.
@@ -254,7 +259,7 @@ class Carousel extends HTMLElement {
     return val
   }
 
-  /**
+  /*
    * Gets the next image index depending on the display mode and the current index.
    * @function
    * @param {number} val - The current image index.
@@ -263,7 +268,7 @@ class Carousel extends HTMLElement {
     if (this.display === 'reverse') { return val - 1 } else if (this.display === 'random') { return Math.ceil(Math.random() * this.number) } else { return val + 1 }
   }
 
-  /**
+  /*
    * Switches the three images of the carousel as appropriate. Sets the next index.
    * @function
    */
@@ -274,7 +279,7 @@ class Carousel extends HTMLElement {
     this.i = this.bound(this.step(this.i))
   };
 
-  /**
+  /*
    * Applies blur to the images.
    * @function
    */
@@ -288,7 +293,7 @@ class Carousel extends HTMLElement {
     }
   }
 
-  /**
+  /*
    * Moves the image on the left to the front.
    * @function
    */
@@ -297,7 +302,7 @@ class Carousel extends HTMLElement {
     this.switch()
   }
 
-  /**
+  /*
    * Moves the image on the right to the front.
    * @function
    */
@@ -305,7 +310,7 @@ class Carousel extends HTMLElement {
     this.switch()
   }
 
-  /**
+  /*
    * Load images from the directory indicated by the "imagefolder" attribute.
    * @function
    */

@@ -58,14 +58,18 @@ timelineItemTemplate.innerHTML = `
  * Timeline Class
  * @class
  * @property {String} timestamp - time for item component
- * @property {String} color - TODO the color of the node for this timeline item.
  * @property {String} position - whether on "left" or "right"
- * @property {String} size - TODO size of the node for the timeline item. "small" "medium" "large"
  * @property {String} content - content for the timeline item.
+ * 
+ * @example
+ * <timeline-element>
+ *  <timeline-item timestamp="2000 - 2010" content="Worked at Pint" position="left"> </timeline-item>
+ *  <timeline-item timestamp="2015 - 2040" content="Worked at Google" position="right"> </timeline-item>
+ * <timeline-element>
  */
 class TimelineItem extends HTMLElement {
 
-  /**
+  /*
    * Returns the item's timestamp.
    * @function
    * @param {String} - The timestamp associated with some event the element represents.
@@ -74,7 +78,7 @@ class TimelineItem extends HTMLElement {
     return this.getAttribute('timestamp')
   }
 
-  /**
+  /*
    * Sets item's timestamp and updates the element with loadContent.
    * @function
    * @param {String} time - The timestamp associated with the element. If no time is given, timestamp is removed.
@@ -89,7 +93,7 @@ class TimelineItem extends HTMLElement {
     this.loadContent()
   }
 
-  /**
+  /*
    * Returns the text associated with the element.
    * @function
    * @returns {String} - The text description of some event the element represents.
@@ -98,7 +102,7 @@ class TimelineItem extends HTMLElement {
     return this.getAttribute('content')
   }
 
-  /**
+  /*
    * Sets timeline's description and reloads content.
    * @function
    * @param {String} txt - The text to associate with the element. If none given, text is removed.
@@ -113,7 +117,7 @@ class TimelineItem extends HTMLElement {
     this.loadContent()
   }
 
-  /**
+  /*
    * Returns the color of the timeline node.
    * @function
    * @returns {String}
@@ -122,7 +126,7 @@ class TimelineItem extends HTMLElement {
     return this.getAttribute('color')
   }
 
-  /**
+  /*
    * Returns the color of the node on the timeline for this element and updates.
    * @function
    * @param {String} col - The color the node should have
@@ -141,7 +145,7 @@ class TimelineItem extends HTMLElement {
     return this.getAttribute('position')
   }
 
-  /**
+  /*
    * Sets the position of the item to be on the left or on the right of the
    * timeline.
    * @function
@@ -179,7 +183,7 @@ class TimelineItem extends HTMLElement {
     this.updatePosition()
   }
 
-  /**
+  /*
    * Updates whether timeline element is on the left or right of the timeline's bar.
    * If the position is not set, left is set as default.
    * @function
@@ -199,11 +203,7 @@ class TimelineItem extends HTMLElement {
     }
   }
 
-  updateColor () {
-    // TODO change ::after's selector for color of node.
-  }
-
-  /**
+  /*
    * Loads timestamp and description into element so the changes are visible.
    * @function
    */
