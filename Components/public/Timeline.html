@@ -6,8 +6,8 @@
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
-    <script src="../public/Timeline/timeline-item.js"></script>
-    <script src="../public/Timeline/timeline.js"> </script>
+    <script src="Timeline/timeline-item.js"></script>
+    <script src="Timeline/timeline.js"> </script>
     <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -29,10 +29,10 @@
 </nav>
 
 <div id="main">
-    
+
     <h1 class="page-title">Timeline</h1>
-    
-    
+
+
 
 
 
@@ -40,28 +40,28 @@
 <section>
 
 <header>
-    
+
         <h2>
         Timeline
         </h2>
-        
+
             <div class="class-description">Creates a timeline element that arranges events in a column in sequential order</div>
-        
-    
+
+
 </header>
 
 <article>
     <div class="container-overview">
-    
-        
 
-    
+
+
+
     <h2>Constructor</h2>
-    
+
 
     <h4 class="name" id="Timeline"><span class="type-signature"></span>new Timeline<span class="signature">()</span><span class="type-signature"></span></h4>
 
-    
+
 
 
 
@@ -79,50 +79,50 @@
 
     <h5>Properties:</h5>
 
-    
+
 
 <table class="props">
     <thead>
     <tr>
-        
+
         <th>Name</th>
-        
+
 
         <th>Type</th>
 
-        
 
-        
+
+
 
         <th class="last">Description</th>
     </tr>
     </thead>
 
     <tbody>
-    
+
 
         <tr>
-            
+
                 <td class="name"><code>reverse</code></td>
-            
+
 
             <td class="type">
-            
-                
+
+
 <span class="param-type">bool</span>
 
 
-            
+
             </td>
 
-            
 
-            
+
+
 
             <td class="description last">Set if timeline should show in reverse order (top to bottom, bottom to top)</td>
         </tr>
 
-    
+
     </tbody>
 </table>
 
@@ -131,42 +131,42 @@
 
 <dl class="details">
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
         <a href="Timeline_timeline.js.html">Timeline/timeline.js</a>, <a href="Timeline_timeline.js.html#line43">line 43</a>
     </li></ul></dd>
-    
 
-    
 
-    
 
-    
+
+
+
+
 </dl>
 
 
@@ -184,7 +184,7 @@
 
 
     <h5>Example</h5>
-    
+
     <pre class="prettyprint"><code>&lt;timeline-element reverse="false">
    &lt;timeline-item timestamp="Peter committed 06/02/2019 20:46" content="Updated main page style.">&lt;/timeline-item>
    &lt;timeline-item timestamp="Peter committed 06/03/2019 10:30" content="Added test for component.">&lt;/timeline-item>
@@ -203,30 +203,30 @@
     <script>
         document.getElementsByClassName("demobtn")[0].addEventListener("click", function(){
             console.log(document.getElementsByTagName('timeline-element')[0].reverse)
-            let timeline = document.getElementsByTagName('timeline-element')[0]; 
+            let timeline = document.getElementsByTagName('timeline-element')[0];
             timeline.reverse = (timeline.reverse) ? false : true;
         });
     </script>
-    
+
     </div>
 
-    
 
-    
 
-    
 
-     
 
-    
 
-    
 
-    
 
-    
 
-    
+
+
+
+
+
+
+
+
+
 </article>
 
 </section>

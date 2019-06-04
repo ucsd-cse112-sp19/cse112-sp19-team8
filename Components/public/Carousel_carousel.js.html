@@ -27,14 +27,14 @@
 </nav>
 
 <div id="main">
-    
+
     <h1 class="page-title">Carousel/carousel.js</h1>
-    
-    
 
 
 
-    
+
+
+
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>const carouselTemplate = document.createElement('template')
@@ -43,7 +43,7 @@ carouselTemplate.innerHTML = `
     .blur {
       -webkit-filter: blur(10px);
       -moz-filter: blur(10px);
-      -ms-filter: blur(10px);    
+      -ms-filter: blur(10px);
       filter: blur(10px);
     }
   &lt;/style>
@@ -78,11 +78,11 @@ carouselTemplate.innerHTML = `
  * @property {number} interval - How frequently the front image is changed.
  * @property {string} display - Changes display order. Can be "normal", "reverse", or "random".
  * @property {bool} blur - Determines if images on the sides are blurred or not.
- * 
+ *
  * @example
- * 
+ *
  * &lt;image-carousel number=8 imageFolder='img' interval=1500 display blur='false'> &lt;/image-carousel>
- * 
+ *
  */
 class Carousel extends HTMLElement {
   /*
