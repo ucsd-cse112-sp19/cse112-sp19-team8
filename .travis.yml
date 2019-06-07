@@ -31,4 +31,3 @@ script:
         - cd Components/
         - npm install
         - npm test
-        - npm test2
