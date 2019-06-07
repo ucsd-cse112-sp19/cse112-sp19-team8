@@ -4,7 +4,7 @@
   "description": "A simple website built with Node, Express and Pug",
   "main": "server.js",
   "scripts": {
-    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js && standard --fix",
+    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js && standard --fix && testcafe chrome test/cafe.js",
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },
   "author": "Ayo Isaiah",
@@ -42,7 +42,8 @@
     "ignore": [
       "out",
       "node_modules/*",
-      "public/scripts/*"
+      "public/scripts/*",
+      "test/cafe.js"
     ]
   }
 }

@@ -1,7 +1,9 @@
 module.exports = function (config) {
   config.set({
     frameworks: ['mocha', 'chai'],
-    files: ['test/**/*.js',
+    files: ['test/testCarousel.js',
+      'test/testCoreHello.js',
+      'test/testRippleButton.js',
       'public/Carousel/carousel.js',
       'public/CoreHello/core_hello.js',
       'public/RippleButton/ripple_button.js'],
