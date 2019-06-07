@@ -4,16 +4,19 @@
   "description": "A simple website built with Node, Express and Pug",
   "main": "server.js",
   "scripts": {
-    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js && standard --fix && testcafe chrome,firefox /test/testCafetest.js",
+    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js && standard --fix",
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },
   "author": "Ayo Isaiah",
   "license": "MIT",
   "dependencies": {
     "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0",
     "express": "^4.16.3",
     "jsdoc": "^3.5.5",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "testcafe": "^1.2.0"
   },
   "devDependencies": {
     "karma": "^4.1.0",
@@ -37,7 +40,9 @@
       "RippleButton"
     ],
     "ignore": [
-      "out"
+      "out",
+      "node_modules/*",
+      "public/scripts/*"
     ]
   }
 }
