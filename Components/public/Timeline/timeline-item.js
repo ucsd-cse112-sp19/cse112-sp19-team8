@@ -73,6 +73,18 @@ timelineItemTemplate.innerHTML = `
  * <timeline-element>
  */
 class TimelineItem extends HTMLElement {
+
+  /*
+   * Returns the attributes of the carousel. These can be set to change the carousel behavior.
+   * Changes to these attributes will have side effects handled by
+   * attributeChangedCallback
+   * @function
+   * @returns {string[]}
+   */
+  static get observedAttributes () {
+    return ['timestamp', 'content', 'color', 'position']
+  }
+
   /*
    * Returns the item's timestamp.
    * @function
@@ -89,12 +101,7 @@ class TimelineItem extends HTMLElement {
    */
   set timestamp (time) {
     console.log('inside set timestamp')
-    if (time) {
-      this.setAttribute('timestamp', time)
-    } else {
-      this.removeAttribute('timestamp')
-    }
-    this.loadContent()
+    this.setAttribute('timestamp', time)
   }
 
   /*
@@ -113,12 +120,7 @@ class TimelineItem extends HTMLElement {
    */
   set content (txt) {
     console.log('inside set content')
-    if (txt) {
-      this.setAttribute('content', txt)
-    } else {
-      this.removeAttribute('content')
-    }
-    this.loadContent()
+    this.setAttribute('content', txt)
   }
 
   /*
@@ -137,12 +139,7 @@ class TimelineItem extends HTMLElement {
    */
   set color (col) {
     console.log('inside set color')
-    if (col) {
-      this.setAttribute('color', col)
-    } else {
-      this.removeAttribute('color')
-    }
-    this.updateColor()
+    this.setAttribute('color', col)
   }
 
   get position () {
@@ -157,13 +154,7 @@ class TimelineItem extends HTMLElement {
    */
   set position (dir) {
     console.log('inside set position')
-    if (dir) {
-      this.setAttribute('position', dir)
-      this.updatePosition()
-    } else {
-      // left by default.
-      this.setAttribute('position', 'left')
-    }
+    this.setAttribute('position', dir)
   }
 
   /**
@@ -183,8 +174,32 @@ class TimelineItem extends HTMLElement {
 
   connectedCallback () {
     console.log('inside callback')
+
+
     this.loadContent()
     this.updatePosition()
+  }
+
+  /*
+   * Handles side-effects of attribute changes
+   * @callback
+   */
+  attributeChangedCallback (attrName, oldVal, newVal) {
+    console.log(`Update attribute |${attrName}|: ${oldVal} to ${newVal}`)
+    switch (attrName) {
+      case 'timestamp':
+        this.loadContent()
+        break
+      case 'content':
+        this.loadContent()
+        break
+      case 'color':
+        this.updateColor()
+        break
+      case 'position':
+        this.updatePosition()
+        break
+    }
   }
 
   /*
@@ -212,10 +227,10 @@ class TimelineItem extends HTMLElement {
    * @function
    */
   loadContent () {
-    this.mainContent.textContent = this.content
-    console.log(this.content)
-    this.timestampElem.textContent = (this.timestamp) ? this.timestamp : ''
-    console.log('Loading |' + this.mainContent.textContent + '| content | ' + this.timestamp + ' | timestamp |.')
+    this.mainContent.textContent = this.getAttribute('content')
+    console.log(this.getAttribute('content'))
+    this.timestampElem.textContent = (this.getAttribute('timestamp')) ? this.getAttribute('timestamp') : ''
+    console.log('Loading |' + this.mainContent.textContent + '| content | ' + this.getAttribute('timestamp') + ' | timestamp |.')
   }
 }
 

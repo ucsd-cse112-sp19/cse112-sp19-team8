@@ -48,6 +48,8 @@ carouselTemplate.innerHTML = `
 class Carousel extends HTMLElement {
   /*
    * Returns the attributes of the carousel. These can be set to change the carousel behavior.
+   * Changes to these attributes will have side effects handled by
+   * attributeChangedCallback
    * @function
    * @returns {string[]}
    */
@@ -90,9 +92,7 @@ class Carousel extends HTMLElement {
    * @param {string} path - The new file path of the images folder.
    */
   set imageFolder (path) {
-    if (path) {
-      this.setAttribute('imagefolder', path)
-    }
+    this.setAttribute('imagefolder', path)
   }
 
   /*
@@ -101,17 +101,7 @@ class Carousel extends HTMLElement {
    * @returns {number} - The delay between image switching.
    */
   get interval () {
-    if (this.hasAttribute('interval')) {
-      // Default time interval is 2000
-      if (this.getAttribute('interval') === '') {
-        this.interval = 2000
-        return 2000
-      } else {
-        return this.getAttribute('interval')
-      }
-    } else {
-      return 2000
-    }
+    return this.getAttribute('interval')
   }
 
   /*
@@ -120,11 +110,7 @@ class Carousel extends HTMLElement {
    * @param {number} intv - The new delay between image switching.
    */
   set interval (intv) {
-    if (intv) {
-      this.setAttribute('interval', intv)
-    } else {
-      this.removeAttribute('interval', '')
-    }
+    this.setAttribute('interval', intv)
   }
 
   /*
@@ -133,26 +119,19 @@ class Carousel extends HTMLElement {
    * @returns {string} - The display mode of the carousel.
    */
   get display () {
-    if (this.hasAttribute('display')) {
-      // Default display is forward (normal)
-      if (this.getAttribute('display') === '') {
-        this.display = 'normal'
-        return 'normal'
-      } else {
-        return this.getAttribute('display')
-      }
-    } else {
-      return 'normal'
-    }
+    return this.getAttribute('display')
   }
 
   /*
    * Sets the image display order.
    * @function
-   * @param {string} option - The display mode of the carousel. Valid modes: "normal", "reverse", "random".
+   * @param {string} option - The display mode of the carousel. Valid modes:
+   * "normal", "reverse", "random".
    */
   set display (option) {
-    if (option === 'normal' || option === 'reverse' || option === 'random') { this.setAttribute('display', option) }
+    if (option === 'normal' || option === 'reverse' || option === 'random') {
+      this.setAttribute('display', option)
+    }
   }
 
   /*
@@ -161,17 +140,7 @@ class Carousel extends HTMLElement {
    * @returns {bool} - Indicates if carousel's side images are blurred or not.
    */
   get blur () {
-    if (this.hasAttribute('blur')) {
-      // Carousel has blur by default
-      if (this.getAttribute('blur') === '') {
-        this.blur = 'true'
-        return 'true'
-      } else {
-        return this.getAttribute('blur')
-      }
-    } else {
-      return 'true'
-    }
+    return this.getAttribute('blur')
   }
 
   /*
@@ -184,7 +153,8 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Fires when an instance of the carousel is created. Obtains left, middle, and right images for display.
+   * Fires when an instance of the carousel is created. Obtains left, middle, 
+   * and right images for display.
    * @constructor
    */
   constructor () {
@@ -200,21 +170,39 @@ class Carousel extends HTMLElement {
     this.right_img = this.table.querySelector('#pic_right')
   };
 
+  /*
+   * Does setup for component after it's added to the DOM by applying blur, 
+   * loading source images, displaying those images, and preparing the image
+   * index for the next switch. Also applies a default interval of 2000 if none
+   * is set.
+   * @callback
+   */
   connectedCallback () {
     this.connected = true
 
-    this.setBlur()
+    // Apply initial blur (if applicable)
+    if (this.getAttribute('blur') === 'true') this.applyBlur()
+    else  this.removeBlur()
 
+    // Default interval if none is given
+    if (this.getAttribute('interval') === null) this.setAttribute('interval', 2000)
+
+    // Load images from source
     this.loadPics()
 
+    // Get first few images, prepare index for next switch
     this.switch()
 
     clearInterval(this.refreshID)
     this.refreshID = setInterval(() => {
       this.switch()
-    }, this.interval)
+    }, this.getAttribute('interval'))
   }
 
+  /*
+   * Handles side-effects of attribute changes
+   * @callback
+   */
   attributeChangedCallback (attrName, oldVal, newVal) {
     if (this.connected === false) { return }
     console.log(`Update attribute |${attrName}|: ${oldVal} to ${newVal}`)
@@ -233,12 +221,12 @@ class Carousel extends HTMLElement {
         clearInterval(this.refreshID)
         this.refreshID = setInterval(() => {
           this.switch()
-        }, this.interval)
+        }, this.getAttribute('interval'))
         break
       case 'display':
         break
       case 'blur':
-        this.setBlur()
+        this.applyBlur() 
         break
     }
   }
@@ -260,12 +248,20 @@ class Carousel extends HTMLElement {
   }
 
   /*
-   * Gets the next image index depending on the display mode and the current index.
+   * Gets the next image index depending on the display mode and the current
+   * index. Anything other than reverse and random (including normal) defaults
+   * to normal switching strategy
    * @function
    * @param {number} val - The current image index.
    */
   step (val) {
-    if (this.display === 'reverse') { return val - 1 } else if (this.display === 'random') { return Math.ceil(Math.random() * this.number) } else { return val + 1 }
+    if (this.getAttribute('display') === 'reverse') { 
+      return val - 1 
+    } else if (this.getAttribute('display') === 'random') {
+      return Math.ceil(Math.random() * this.number) 
+    } else { 
+      return val + 1 
+    }
   }
 
   /*
@@ -280,17 +276,23 @@ class Carousel extends HTMLElement {
   };
 
   /*
-   * Applies blur to the images.
+   * Applies blur to the images by setting left and right
+   * image attributes.
    * @function
    */
-  setBlur () {
-    if (this.blur === 'true') {
-      this.left_img.setAttribute('class', 'blur')
-      this.right_img.setAttribute('class', 'blur')
-    } else {
-      this.left_img.setAttribute('class', 'non_blur')
-      this.right_img.setAttribute('class', 'non_blur')
-    }
+  applyBlur () {
+    this.left_img.setAttribute('class', 'blur')
+    this.right_img.setAttribute('class', 'blur')
+  }
+
+  /*
+   * Removes blur from images by setting left and right
+   * image attributes.
+   * @function
+   */
+  removeBlur() {
+    this.left_img.setAttribute('class', 'non_blur')
+    this.right_img.setAttribute('class', 'non_blur')
   }
 
   /*
