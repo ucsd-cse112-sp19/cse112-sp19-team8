@@ -26,7 +26,7 @@ describe('Testing component Carousel', () => {
 
     it('should set interval to 2000 when input empty', () => {
       component.interval = ''
-      expect(component.interval).equal(2000)
+      expect(component.interval).equal('2000')
     })
   })
 
@@ -38,7 +38,7 @@ describe('Testing component Carousel', () => {
 
     it('should set interval to 2000 when input empty', () => {
       component.interval = ''
-      expect(component.interval).equal(2000)
+      expect(component.interval).equal('2000')
     })
   })
 
