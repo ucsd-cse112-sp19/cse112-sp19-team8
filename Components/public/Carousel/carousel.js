@@ -110,7 +110,12 @@ class Carousel extends HTMLElement {
    * @param {number} intv - The new delay between image switching.
    */
   set interval (intv) {
-    this.setAttribute('interval', intv)
+    // Apply default when invalid input -> 2000
+    if (isNaN(intv) || intv === '') {
+      this.setAttribute('interval', 2000)
+    } else {
+      this.setAttribute('interval', intv)
+    }
   }
 
   /*
@@ -129,7 +134,12 @@ class Carousel extends HTMLElement {
    * "normal", "reverse", "random".
    */
   set display (option) {
-    this.setAttribute('display', option)
+    // Apply default when invalid input -> 'normal'
+    if (option !== 'normal' && option !== 'reverse' && option !== 'random') {
+      this.setAttribute('display', 'normal')
+    } else {
+      this.setAttribute('display', option)
+    }
   }
 
   /*
@@ -216,23 +226,19 @@ class Carousel extends HTMLElement {
         this.switch()
         break
       case 'interval':
-        // Apply default when invalid input -> 2000
-        if (isNaN(newVal) || newVal === '') {
-          this.setAttribute('interval', 2000)
-        }
         clearInterval(this.refreshID)
         this.refreshID = setInterval(() => {
           this.switch()
         }, this.getAttribute('interval'))
         break
       case 'display':
-        // Apply default when invalid input -> 'normal'
-        if (newVal !== 'normal' && newVal !== 'reverse' && newVal !== 'random') {
-          this.setAttribute('display', 'normal')
-        }
         break
       case 'blur':
-        this.applyBlur() 
+        if (newVal === 'true') {
+          this.applyBlur()
+        } else {
+          this.removeBlur()
+        }
         break
     }
   }
