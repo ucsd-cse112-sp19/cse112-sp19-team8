@@ -129,9 +129,7 @@ class Carousel extends HTMLElement {
    * "normal", "reverse", "random".
    */
   set display (option) {
-    if (option === 'normal' || option === 'reverse' || option === 'random') {
-      this.setAttribute('display', option)
-    }
+    this.setAttribute('display', option)
   }
 
   /*
@@ -218,8 +216,10 @@ class Carousel extends HTMLElement {
         this.switch()
         break
       case 'interval':
-        // Apply default when empty input -> 2000
-        if (newVal === '') this.setAttribute('newVal', 2000)
+        // Apply default when invalid input -> 2000
+        if (isNaN(newVal)) {
+          this.setAttribute('interval', 2000)
+        }
         clearInterval(this.refreshID)
         this.refreshID = setInterval(() => {
           this.switch()
@@ -227,7 +227,7 @@ class Carousel extends HTMLElement {
         break
       case 'display':
         // Apply default when invalid input -> 'normal'
-        if (newVal != 'normal' && newVal != 'reverse' && newVal != 'random') {
+        if (newVal !== 'normal' && newVal !== 'reverse' && newVal !== 'random') {
           this.setAttribute('display', 'normal')
         }
         break
