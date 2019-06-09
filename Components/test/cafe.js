@@ -16,3 +16,9 @@ test('Timeline Initial Test', async t => {
         .click('#itv-plus')
         .expect(Selector('#timeline').childNodeCount).eql(4);
 });
+
+//test('RippleButton Initial Test', async t => {
+//  await t
+      //  .click()
+      //  .expect(Selector('#RippleButton').something);
+//});
