@@ -37,7 +37,9 @@
       "CoreHello",
       "HTMLElement",
       "Carousel",
-      "RippleButton"
+      "RippleButton",
+      "Timeline",
+      "TimelineItem"
     ],
     "ignore": [
       "out",
