@@ -112,7 +112,7 @@ class Carousel extends HTMLElement {
   set interval (intv) {
     // Apply default when invalid input -> 2000
     if (isNaN(intv) || intv === '') {
-      this.setAttribute('interval', 2000)
+      this.interval = 2000
     } else {
       this.setAttribute('interval', intv)
     }
