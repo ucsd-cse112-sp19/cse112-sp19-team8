@@ -82,7 +82,11 @@ class Timeline extends HTMLElement {
     console.log(`Update attribute |${attrName}|: ${oldVal} to ${newVal}`)
     switch (attrName) {
       case 'reverse':
-        this.reverseItems()
+        if (newVal === 'true') {
+          this.reverseItems()
+        } else {
+          this.removeAttribute('reverse')
+        }
         break
     }
   }
