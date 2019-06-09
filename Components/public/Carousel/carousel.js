@@ -218,12 +218,18 @@ class Carousel extends HTMLElement {
         this.switch()
         break
       case 'interval':
+        // Apply default when empty input -> 2000
+        if (newVal === '') this.setAttribute('newVal', 2000)
         clearInterval(this.refreshID)
         this.refreshID = setInterval(() => {
           this.switch()
         }, this.getAttribute('interval'))
         break
       case 'display':
+        // Apply default when invalid input -> 'normal'
+        if (newVal != 'normal' && newVal != 'reverse' && newVal != 'random') {
+          this.setAttribute('display', 'normal')
+        }
         break
       case 'blur':
         this.applyBlur() 

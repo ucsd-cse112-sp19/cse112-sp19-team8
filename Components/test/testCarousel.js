@@ -57,14 +57,14 @@ describe('Testing component Carousel', () => {
   describe('Test Attribute Blur', () => {
     it('should blur left and right pictures', () => {
       component.blur = 'true'
-      component.setBlur()
+      component.applyBlur()
       expect(component.left_img.hasAttribute('class', 'blur')).equal(true)
       expect(component.right_img.hasAttribute('class', 'blur')).equal(true)
     })
 
     it('should not blur left and right pictures', () => {
       component.blur = 'false'
-      component.setBlur()
+      component.applyBlur()
       expect(component.left_img.hasAttribute('class', 'non_blur')).equal(true)
       expect(component.right_img.hasAttribute('class', 'non_blur')).equal(true)
     })
