@@ -210,7 +210,11 @@
         document.getElementsByClassName("demobtn")[0].addEventListener("click", function(){
             console.log(document.getElementsByTagName('timeline-element')[0].reverse)
             let timeline = document.getElementsByTagName('timeline-element')[0];
-            timeline.reverse = (timeline.reverse) ? false : true;
+            if (timeline.getAttribute('reverse') === 'true') {
+                timeline.setAttribute('reverse', false)
+            } else {
+                timeline.setAttribute('reverse', true)
+            }
         });
     </script>
 
