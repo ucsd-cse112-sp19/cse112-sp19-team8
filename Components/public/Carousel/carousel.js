@@ -217,8 +217,8 @@ class Carousel extends HTMLElement {
         break
       case 'interval':
         // Apply default when invalid input -> 2000
-        if (isNaN(newVal)) {
-          this.interval = 2000
+        if (isNaN(newVal) || newVal === '') {
+          this.setAttribute('interval', 2000)
         }
         clearInterval(this.refreshID)
         this.refreshID = setInterval(() => {
@@ -228,7 +228,7 @@ class Carousel extends HTMLElement {
       case 'display':
         // Apply default when invalid input -> 'normal'
         if (newVal !== 'normal' && newVal !== 'reverse' && newVal !== 'random') {
-          this.display = 'normal'
+          this.setAttribute('display', 'normal')
         }
         break
       case 'blur':
