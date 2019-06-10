@@ -4,7 +4,7 @@
   "description": "A simple website built with Node, Express and Pug",
   "main": "server.js",
   "scripts": {
-    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js && standard --fix && testcafe chrome test/cafe.js",
+    "test": "karma start --single-run --browsers ChromeHeadless karma.conf.js && lstandard --fix && testcafe chrome test/cafe.js && percy exec -- node public",
     "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
   },
   "author": "Ayo Isaiah",
@@ -16,7 +16,9 @@
     "express": "^4.16.3",
     "jsdoc": "^3.5.5",
     "mocha": "^6.1.4",
-    "testcafe": "^1.2.0"
+    "testcafe": "^1.2.0",
+    "@percy/script": "^1.0.0"
+
   },
   "devDependencies": {
     "karma": "^4.1.0",
