@@ -1,4 +1,4 @@
-language: node_js
+npm install --save-dev testcafe-browser-provider-saucelabslanguage: node_js
 
 node_js: "stable"
 
