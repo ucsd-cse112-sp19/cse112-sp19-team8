@@ -8,7 +8,7 @@ timelineTemplate.innerHTML = `
         display: flex;
         font-family: ''
     }
-
+    
     /* The actual timeline (the vertical ruler) */
     .main::after {
         content: '';
@@ -18,7 +18,7 @@ timelineTemplate.innerHTML = `
         top: 0;
         bottom: 0;
         left: 50%;
-    }
+    } 
     ::slotted {
         display: block;
     }
@@ -32,41 +32,33 @@ timelineTemplate.innerHTML = `
  * Creates a timeline element that arranges events in a column in sequential order
  * @class
  * @property {bool} reverse - Set if timeline should show in reverse order (top to bottom, bottom to top)
- * @example
- *
- * <timeline-element reverse="false">
- *    <timeline-item timestamp="Peter committed 06/02/2019 20:46" content="Updated main page style."></timeline-item>
- *    <timeline-item timestamp="Peter committed 06/03/2019 10:30" content="Added test for component."></timeline-item>
- *    <timeline-item timestamp="Peter committed 06/03/2019 15:21" content="Added test for component."></timeline-item>
- * </timeline-element>
  */
 class Timeline extends HTMLElement {
-  /*
-   * See if the elements in the timeline are reversed.
+
+  static get observedAttributes () {
+    return ['reverse']
+  }
+
+  /**
+   * See if the elements in the timeline are reversed. (TODO)
    * @function
    * @returns {bool} - True if the order is reversed, else false.
    */
   get reverse () {
-    return this.hasAttribute('reverse')
+    return this.getAttribute('reverse')
   }
 
-  /*
+  /**
    * Set if the elements should be reversed.
    * @function
    * @param {bool} val - True if the order should be reversed, else false.
    */
   set reverse (val) {
     console.log('inside set reverse.')
-    if (val) {
-      this.setAttribute('reverse', true)
-      this.reverseItems()
-    } else {
-      this.removeAttribute('reverse')
-      this.reverseItems()
-    }
+    this.setAttribute('reverse', val)
   }
 
-  /*
+  /**
    * Fires when an instance of the timeline is created.
    * @constructor
    */
@@ -83,14 +75,31 @@ class Timeline extends HTMLElement {
   }
 
   /*
+   * Handles side-effects of attribute changes
+   * @callback
+   */
+  attributeChangedCallback (attrName, oldVal, newVal) {
+    console.log(`Update attribute |${attrName}|: ${oldVal} to ${newVal}`)
+    switch (attrName) {
+      case 'reverse':
+        this.reverseItems()
+        break
+    }
+  }
+
+  /**
    * Flips the direction the flex items are arranged in the container.
    * See reference: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
    * @function
    */
   reverseItems () {
-    console.log('reverse??? ' + this.reverse)
+    console.log('reverse??? ' + this.getAttribute('reverse'))
 
-    this.main.style.flexDirection = (this.reverse) ? 'column-reverse' : 'column'
+    if (this.getAttribute('reverse') === 'true') {
+      this.main.style.flexDirection = 'column-reverse'
+    } else {
+      this.main.style.flexDirection = 'column'
+    }
   }
 }
 

@@ -69,15 +69,29 @@ class RippleButton extends HTMLElement {
   }
 
   /*
+   * Sets the content of the button
+   * @function
+   * @param {string} cont - The string to be displayed by the button.
+   */
+  set contents(cont) {
+    this.setAttribute('content', cont)
+  }
+
+  /*
    * Returns the class of the button.
    * @function
    * @returns {string} - A string indicating the class name.
    */
   get class () {
-    if (this.hasAttribute('class')) { return this.getAttribute('class') } else { return 'default' }
+   return this.getAttribute('class')
   }
 
+  /*
+   * Sets class to default if not set.
+   * Updates button to have functionality and text.
+   */
   connectedCallback () {
+    if (this.getAttribute('class') === null) this.setAttribute('class', 'default')
     this.update()
   }
 

@@ -17,10 +17,14 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 	<script type="text/javascript" src="http://yourjavascript.com/622451399/carousel.js"></script>
 	<script type="text/javascript" src="http://yourjavascript.com/074939126/timeline.js"></script>
+	<script type="text/javascript" src="http://yourjavascript.com/074939126/timeline.js"></script>
+	<script type="text/javascript" src="RippleButton/ripple_button.js"></script>
+
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
 	<!-- latest compiled jquery for bootstrap -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="index.js"></script>
 
 	<!-- Latest compiled JavaScript for bootstrap -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -90,10 +94,11 @@
 		<image-carousel number=11 imageFolder='img' interval=1500 display blur='false'>
 		</image-carousel>
 
+
 		<div class="container" id="team">
 			<h2>The Team</h2>
 			<timeline-element class="container" id="timeline" style="width: 60%; margin: 0 auto;">
-				<timeline-item position="left" timestamp="Joel Loo" content="My name is Joel Loo. I am a 4th year Cognitive Science major/Computer Science minor, interested in UX/UI design. I am our team's
+				<!-- ><timeline-item position="left" timestamp="Joel Loo" content="My name is Joel Loo. I am a 4th year Cognitive Science major/Computer Science minor, interested in UX/UI design. I am our team's
 			lead this quarter, and I hope that through fostering collaborative problem solving and interpersonal connections, our team will strive to
 			succeed in our work. In my free time I enjoy going to music festivals and practicing graphic design!"></timeline-item>
 				<timeline-item position = "right" timestamp="Sarah Gemperle" content="I'm a tools and utility team member, and a current 4th year studying Mathematics-Computer Science with a Business minor!
@@ -116,8 +121,11 @@
 			quality assurance team. I’m interested in full-stack development. Love speeding and gaming in my
 			spare time.">
 					</time-line>
-					<p id="toChange" position='right' style='visibility: hidden'></p>
+					<p id="toChange" position='right' style='visibility: hidden'></p> -->
 			</timeline-element>
+
+			<ripple-button class="rpbutton" content="Click to Reveal Team!" style="width:400px;height:200px;margin: 0px auto;"></ripple-button>
+
 		</div>
 
 
