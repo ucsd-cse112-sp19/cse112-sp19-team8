@@ -26,7 +26,11 @@ test('RippleButton Initial Test', async t => {
 //Tests UI animation for RippleButton
 test('RippleButton Shadow DOM Test', async t => {
     const shadowRipple = Selector(() => document.querySelector('#testButton').shadowRoot.querySelector('.rpbutton'));
+    const rippleAnimation = Selector(() => document.querySelector('#testButton').shadowRoot.querySelector('.ripple'));
 
     await t
+        .click(shadowRipple)
+      //  wait(3000);
         .expect(shadowRipple.exists).ok();
+      //  .expect(rippleAnimation.exists).ok();
 });

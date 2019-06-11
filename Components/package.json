@@ -45,8 +45,7 @@
       "out",
       "node_modules/*",
       "public/scripts/*",
-      "test/cafe.js",
-      "test/cafe_teamsite.js"
+      "test/cafe.js"
     ]
   }
 }
