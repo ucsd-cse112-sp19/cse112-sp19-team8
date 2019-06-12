@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  
+
 </head>
 <body>
   <h1>Control Panel</h1>
@@ -24,14 +24,14 @@
       <button id='itv-plus' class='interval'>interval +</button>
       <button id='itv-minus' class='interval'>interval -</button>
     </div>
-    
+
     <div class='category'>
       <h2>Display</h2>
       <button class='display' content="normal"></button>
       <button class='display' content="reverse"></button>
       <button class='display' content="random"></button>
     </div>
-    
+
     <div class='category'>
       <h2>Blur</h2>
       <button class='blur' content="enable"></button>
@@ -40,6 +40,10 @@
 
   </div>
   <br><br>
+
+  <h1 align="center">Ripple Demo</h1>
+  <ripple-button class="rpbutton" id="testButton" content="Test Button" style="width:200px;height:100px;margin: 0px auto;"></ripple-button>
+
   <h1 align="center">Carousel</h1>
   <image-carousel number=10 imageFolder='Carousel/numbers' interval=1500 display blur='false' id='carousel'>
   </image-carousel><br><br>
@@ -47,6 +51,6 @@
   <timeline-element class="container" id="timeline" style="width: 60%; margin: 0 auto;">
     <p id="toChange" position='right' style='visibility: hidden'></p>
   </timeline-element>
-  
+
 </body>
 </html>
