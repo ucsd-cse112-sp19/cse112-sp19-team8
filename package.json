@@ -1,0 +1,24 @@
+{
+  "name": "cd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "testcafe-browser-provider-saucelabs": "^1.7.0",
+    "testcafe": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucsd-cse112/cse112-sp19-team8.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ucsd-cse112/cse112-sp19-team8/issues"
+  },
+  "homepage": "https://github.com/ucsd-cse112/cse112-sp19-team8#readme"
+}
