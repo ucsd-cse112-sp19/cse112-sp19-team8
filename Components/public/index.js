@@ -6,6 +6,7 @@ window.onload = () => {
     'Joshua Quan', 'Colin Van Winkle', 'Kuo', 'Muzhou Li', 'Tommy',
     'Yifan (Alex) Li', 'Zijin']
   let contentArr = ["My name is Joel Loo. I am a 4th year Cognitive Science major/Computer Science minor, interested in UX/UI design. I am our team's lead this quarter, and I hope that through fostering collaborative problem solving and interpersonal connections, our team will strive to succeed in our work. In my free time I enjoy going to music festivals and practicing graphic design!",
+    "Hi I'm Charlotte and I'm a fourth year math-computer science major. In my spare time I like running, being at the beach, and browsing Reddit.",
     "I'm a tools and utility team member, and a current 4th year studying Mathematics-Computer Science with a Business minor! Love learning new web-dev and application development technologies. I enjoy hanging out with friends, music, and travel!",
     "Hi I'm Vincent. I like javascript and node! I code with atom, and I'm a techsavy nerd.",
     "I'm Joshua Quan, I'm one of the coders for the group. I'm a 3rd-year Computer Science major/Cognitive Science minor. I like to make small games in Unity and draw in my spare time!",
