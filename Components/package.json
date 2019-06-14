@@ -32,7 +32,7 @@
     "env": [
       "mocha",
       "chai",
-      "jest"
+      "jest",
     ],
     "globals": [
       "CoreHello",
