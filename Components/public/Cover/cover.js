@@ -1,7 +1,8 @@
-document.write("<script src='TweenMax.min.js' type='text/javascript'></script>");
+import 'TweenMax.min.js'
+document.write("<script src='TweenMax.min.js' type='text/javascript'></script>")
 
 /**
- * Used for creating stickers under cover component. When user clicks on 
+ * Used for creating stickers under cover component. When user clicks on
  * 'enter' button, The stickers will slide up alone with the cover component.
  * The class has a rotate field in style to create an overlay effect.
  * @class
@@ -14,25 +15,24 @@ class Revealer {
    * @param {object} element - The element to be wrapped
    * @param {object} options - Structure that wraps field of Revealer(ex.angle)
    */
-  constructor(element, options) {
+  constructor (element, options) {
     this.options = { angle: 0 }
     Object.assign(this.options, options)
 
     this.DOM = {}
     this.DOM.element = element
-    this.DOM.inner = this.DOM.element.firstElementChild;
-            
-    this.DOM.inner.style.width = `calc(100vw * ${Math.abs(Math.cos(this.options.angle * Math.PI/180))} + 100vh * ${Math.abs(Math.sin(this.options.angle * Math.PI/180))})`
-    this.DOM.inner.style.height = `calc(100vw * ${Math.abs(Math.sin(this.options.angle * Math.PI/180))} + 100vh * ${Math.abs(Math.cos(this.options.angle * Math.PI/180))})`
-    this.DOM.element.style.transform = `rotate3d(0,0,1,${this.options.angle}deg)`
+    this.DOM.inner = this.DOM.element.firstElementChild
 
+    this.DOM.inner.style.width = `calc(100vw * ${Math.abs(Math.cos(this.options.angle * Math.PI / 180))} + 100vh * ${Math.abs(Math.sin(this.options.angle * Math.PI / 180))})`
+    this.DOM.inner.style.height = `calc(100vw * ${Math.abs(Math.sin(this.options.angle * Math.PI / 180))} + 100vh * ${Math.abs(Math.cos(this.options.angle * Math.PI / 180))})`
+    this.DOM.element.style.transform = `rotate3d(0,0,1,${this.options.angle}deg)`
   }
 }
 
 /*
  * Color array that changes the color of Revealer
  */
-const overlay_colors = ["#0E0E0E", "#CAA02F", "#BB3C3C", "#694d9f"]
+const overlayColors = ['#0E0E0E', '#CAA02F', '#BB3C3C', '#694d9f']
 
 const coverTemplate = document.createElement('template')
 coverTemplate.innerHTML = `
@@ -141,14 +141,13 @@ coverTemplate.innerHTML = `
  * @property {string} title - Title for the cover
  * @property {string} img - Image path that shows for the cover
  * @property {string} bgcolor - The background color of cover
- * 
+ *
  * @example
  * <cover-reveal number=4 angle=3 title="Team 8 Demo" img="img/ID8TIONLogo.png" bgColor="#000000"></cover-reveal>
- */  
+ */
 class Cover extends HTMLElement {
-
   /*
-   * Returns the attributes of the cover. These can be set to change 
+   * Returns the attributes of the cover. These can be set to change
    * the cover behavior. Changes to these attributes will have side
    * effects handled by attributeChangedCallback
    * @function
@@ -193,7 +192,7 @@ class Cover extends HTMLElement {
    * @param {number} - value of new angle
    */
   set angle (val) {
-    if (0 <= val && val <= 90) {
+    if (val >= 0 && val <= 90) {
       this.setAttribute('angle', val)
     }
   }
@@ -268,7 +267,6 @@ class Cover extends HTMLElement {
     this.intro_image = this.intro_block.querySelector('.intro__img')
     this.intro_title = this.intro_block.querySelector('.intro__title')
     this.intro_enter = this.intro_block.querySelector('.intro__enter')
-
   };
 
   /*
@@ -276,17 +274,17 @@ class Cover extends HTMLElement {
    * the enter button.
    * @function
    */
-  createOverlays() {
-    this.overlays = [];
+  createOverlays () {
+    this.overlays = []
     for (var i = 0; i < this.getAttribute('number'); ++i) {
       var div = document.createElement('div')
-      div.setAttribute('class', "overlay")
-      div.style = " z-index: " + (this.getAttribute('number') - i)
+      div.setAttribute('class', 'overlay')
+      div.style = ' z-index: ' + (this.getAttribute('number') - i)
       var child = document.createElement('div')
-      child.setAttribute('class', "overlay__inner")
-      child.style = "background-color: " + overlay_colors[i]
+      child.setAttribute('class', 'overlay__inner')
+      child.style = 'background-color: ' + overlayColors[i]
       div.appendChild(child)
-      this.overlays.push(new Revealer(div, {angle : i % 2 === 0 ? -this.getAttribute('angle') : this.getAttribute('angle')}))
+      this.overlays.push(new Revealer(div, { angle: i % 2 === 0 ? -this.getAttribute('angle') : this.getAttribute('angle') }))
     }
   }
 
@@ -294,7 +292,7 @@ class Cover extends HTMLElement {
    * Method that insert the revealer created under cover
    * @function
    */
-  insertOverlays() {
+  insertOverlays () {
     for (var i = 0; i < this.getAttribute('number'); ++i) {
       this.cover.parentNode.insertBefore(this.overlays[i].DOM.element, this.cover)
     }
@@ -307,60 +305,54 @@ class Cover extends HTMLElement {
    */
   connectedCallback () {
     // Initialize the cover image
-    this.intro_image.style = "background-image: url(" + this.getAttribute('img') + ")"
-    
+    this.intro_image.style = 'background-image: url(' + this.getAttribute('img') + ')'
+
     // Initialize the cover title
     this.intro_title.innerHTML = this.getAttribute('title')
 
     // Initialize the cover background color
-    this.intro_block.setAttribute("style", "background-color: " + this.getAttribute('bgColor'))
-    
+    this.intro_block.setAttribute('style', 'background-color: ' + this.getAttribute('bgColor'))
+
     // Initalize and connect all the overlays
     this.createOverlays()
     this.insertOverlays()
 
     // Set correct z-index of the cover
-    this.cover.style = "position: absolute; z-index: " + (parseInt(this.getAttribute('number')) + 1)
-
-    // wrap the cover element
-    var revealer = new Revealer(this.cover, {angle : 0})
+    this.cover.style = 'position: absolute; z-index: ' + (parseInt(this.getAttribute('number')) + 1)
 
     // Await window to load so that innerHTML can be rendered.
     window.onload = () => {
-
       // bind the click function to the cover's button
-      this.intro_enter.addEventListener('click', (function(overlays, cover, img) {
-        return function(e) {
+      this.intro_enter.addEventListener('click', (function (overlays, cover, img) {
+        return function (e) {
           // set the cover inactive
           cover.classList.add('cover__hidden')
 
           const ease = Expo.easeInOut
           const duration = 1.2
-        
+
           var pageToggleTimeline = new TimelineMax()
 
           // Move the cover away
-          .to(cover, duration, {
-            ease: ease,
-            y: '-100%'
-          }, 0)
-          
+            .to(cover, duration, {
+              ease: ease,
+              y: '-100%'
+            }, 0)
+
           // Animate overlays
           var interval = 0
           for (var i = 0; i < overlays.length; ++i) {
             interval = 0.2 * (i + 1)
             pageToggleTimeline
-            .to(overlays[i].DOM.inner, duration, {
-              ease: ease,
-              y: '-100%'
-            }, interval)
+              .to(overlays[i].DOM.inner, duration, {
+                ease: ease,
+                y: '-100%'
+              }, interval)
           }
         }
-      }) (this.overlays, this.cover, this.intro_image), false)
-
+      })(this.overlays, this.cover, this.intro_image), false)
     }
   }
-
 }
 
 window.customElements.define('cover-reveal', Cover)
