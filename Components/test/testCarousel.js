@@ -4,7 +4,7 @@ describe('Testing component Carousel', () => {
   beforeEach(function () {
     component = new Carousel()
   })
-  
+
   describe('Test Attribute Display', () => {
     it('should set display to reverse', () => {
       component.display = 'reverse'

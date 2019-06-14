@@ -73,7 +73,7 @@ class RippleButton extends HTMLElement {
    * @function
    * @param {string} cont - The string to be displayed by the button.
    */
-  set contents(cont) {
+  set contents (cont) {
     this.setAttribute('content', cont)
   }
 
@@ -83,7 +83,7 @@ class RippleButton extends HTMLElement {
    * @returns {string} - A string indicating the class name.
    */
   get class () {
-   return this.getAttribute('class')
+    return this.getAttribute('class')
   }
 
   /*

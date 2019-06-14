@@ -161,7 +161,7 @@ class Carousel extends HTMLElement {
   }
 
   /**
-   * Fires when an instance of the carousel is created. Obtains left, middle, 
+   * Fires when an instance of the carousel is created. Obtains left, middle,
    * and right images for display.
    * @constructor
    */
@@ -179,7 +179,7 @@ class Carousel extends HTMLElement {
   };
 
   /*
-   * Does setup for component after it's added to the DOM by applying blur, 
+   * Does setup for component after it's added to the DOM by applying blur,
    * loading source images, displaying those images, and preparing the image
    * index for the next switch. Also applies a default interval of 2000 if none
    * is set.
@@ -190,7 +190,7 @@ class Carousel extends HTMLElement {
 
     // Apply initial blur (if applicable)
     if (this.getAttribute('blur') === 'true') this.applyBlur()
-    else  this.removeBlur()
+    else this.removeBlur()
 
     // Default interval if none is given
     if (this.getAttribute('interval') === null) this.setAttribute('interval', 2000)
@@ -267,12 +267,12 @@ class Carousel extends HTMLElement {
    * @param {number} val - The current image index.
    */
   step (val) {
-    if (this.getAttribute('display') === 'reverse') { 
-      return val - 1 
+    if (this.getAttribute('display') === 'reverse') {
+      return val - 1
     } else if (this.getAttribute('display') === 'random') {
-      return Math.ceil(Math.random() * this.number) 
-    } else { 
-      return val + 1 
+      return Math.ceil(Math.random() * this.number)
+    } else {
+      return val + 1
     }
   }
 
@@ -302,7 +302,7 @@ class Carousel extends HTMLElement {
    * image attributes.
    * @function
    */
-  removeBlur() {
+  removeBlur () {
     this.left_img.setAttribute('class', 'non_blur')
     this.right_img.setAttribute('class', 'non_blur')
   }

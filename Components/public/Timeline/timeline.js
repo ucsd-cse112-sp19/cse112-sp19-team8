@@ -34,7 +34,6 @@ timelineTemplate.innerHTML = `
  * @property {bool} reverse - Set if timeline should show in reverse order (top to bottom, bottom to top)
  */
 class Timeline extends HTMLElement {
-
   static get observedAttributes () {
     return ['reverse']
   }

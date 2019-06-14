@@ -73,7 +73,6 @@ timelineItemTemplate.innerHTML = `
  * <timeline-element>
  */
 class TimelineItem extends HTMLElement {
-
   /*
    * Returns the attributes of the carousel. These can be set to change the carousel behavior.
    * Changes to these attributes will have side effects handled by
@@ -174,7 +173,6 @@ class TimelineItem extends HTMLElement {
 
   connectedCallback () {
     console.log('inside callback')
-
 
     this.loadContent()
     this.updatePosition()
