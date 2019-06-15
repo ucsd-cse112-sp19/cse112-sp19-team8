@@ -109,7 +109,8 @@ class TimelineItem extends HTMLElement {
    * @returns {String} - The text description of some event the element represents.
    */
   get content () {
-    return this.getAttribute('content')
+    //return this.getAttribute('content')
+    return 'dummy content'
   }
 
   /*
@@ -119,7 +120,8 @@ class TimelineItem extends HTMLElement {
    */
   set content (txt) {
     console.log('inside set content')
-    this.setAttribute('content', txt)
+    //this.setAttribute('content', txt)
+    this.setAttribute('content', 'some other dummy text')
   }
 
   /*
