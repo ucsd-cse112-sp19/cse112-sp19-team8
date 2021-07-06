@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Web Component [Cover] Display</title>
+        <script src="carousel.js" type="text/javascript"></script>
+        <script src="cover.js" type="text/javascript"></script>
+    </head>
+    <body>
+      <p> This component has <b>FIVE</b> attributes. </p>
+      <p><b>number</b> [required] specifies how many revealers to display in total. (Range from 1 to 4) </p>
+      <p><b>angle</b> [required] specifies the rotation angle of the revealers. (Range from 0 to 90) </p>
+      <p><b>title</b> [optional] specifies the title of the cover. </p>
+      <p><b>img</b> [optional] specifies the center image of the cover. </p>
+      <p><b>bgColor</b> [optional] specifies the background color of the cover. </p>
+
+      <h2> Required Usage: &#60;cover-reveal&#62; should be used to wrap the &#60;element&#62; needs to be covered. </h2>
+      
+
+      <cover-reveal number=4 angle=3 title="Team 8 Demo" img="img/ID8TIONLogo.png" bgColor="#000000">
+        <div style="position: relative;">
+          <image-carousel number=10 imageFolder='numbers' interval=1500 display blur='false'>
+          </image-carousel><br><br>
+          <image-carousel number=8 imageFolder='img' interval=2500 display blur='false'>Tommy
+          </image-carousel><br><br>
+          <image-carousel id='fool' number=3 imageFolder='img' display='random' blur='false'>
+          </image-carousel>
+          <br><br>
+        </div>
+      </cover-reveal>
+
+      <h1 style="text-align:center"> Uncovered Carousel </h1>
+
+      <image-carousel id='unwarpped' number=3 imageFolder='img' display='random' blur='false'>
+      </image-carousel>
+
+    </body>
+</html>
